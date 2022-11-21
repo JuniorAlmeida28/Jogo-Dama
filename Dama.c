@@ -9,9 +9,9 @@ int main()
     char tab[8][8]; // Tabuleiro 8X8.
     int iColuna;    // Posição inicial.
     int iLinha;     // Posição inicial.
-    int aux = 0;
-    int a;
-    int b;
+    int aux = 0;    // Auxiliar de posição.
+    int fColuna;    // fColuna posição para onde a peça será movida.
+    int fLinha;     // fLinha posição para onde a peça será movida.
     int c;
     int p;
     int auxI;
@@ -93,6 +93,67 @@ int main()
     }
     printf("  |________________________|\n");
     printf("    0  1  2  3  4  5  6  7");
+
+
+
+    while(pretas != 0 && brancas != 0){
+
+        while (1){
+            
+            printf("\n\nJogador 1 \n");
+		    scanf("%d %d", &iColuna, &iLinha);
+		    scanf("%d %d", &fColuna, &fLinha);
+
+
+        // Movimento da peça
+        if( ((((((fLinha == iLinha+1) || (fLinha == iLinha-1)) && (( fLinha >= 0 ) && (fLinha < 10))) &&  ((fColuna == iColuna+1) && (( fColuna >= 0 ) && (fColuna < 10)))) && tab[fLinha][fColuna]==46) && tab[iLinha][iColuna] == 49) )
+
+		 {
+		    tab[iLinha][iColuna] = 46;
+            tab[fLinha][fColuna] = 49;
+            break;
+        }
+        else
+        {
+          printf("movimento invalido");
+          continue;
+        }
+        }
+        system("CLS");
+
+        //VERIFICA SE VIROU DAMA:
+        for(iLinha=0;iLinha<10;iLinha++)
+        {
+		 	if(tab[iLinha][9]==49)
+		 	{
+				tab[iLinha][9]=51;
+			}
+		 }
+
+        // IMPRESSãO DO TABULEIRO:
+    printf("    0  1  2  3  4  5  6  7");
+    printf("\n  _________________________\n");
+    for (iLinha = 0; iLinha < 8; iLinha++)
+    {
+        printf("%d |", iLinha);
+        for (iColuna = 0; iColuna < 8; iColuna++)
+        {
+            printf(" %c ", tab[iColuna][iLinha]);
+            if (iColuna == 7)
+            {
+                printf("|%d \n", iLinha);
+            }
+        }
+        printf("  |                        |\n");
+    }
+    printf("  |________________________|\n");
+    printf("    0  1  2  3  4  5  6  7");
+        }
+        
+
+
+    
+
 
     getch();
     return 0;
