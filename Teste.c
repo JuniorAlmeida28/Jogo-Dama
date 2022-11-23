@@ -93,86 +93,141 @@ int main(void)
 		scanf("%d %d", &j, &i);
 		scanf("%d %d", &b, &a);
 
+       //if(tab[i][j]==3){
 
+            //if( a>i ){
+                //for(i,j;i<10, j>0;i--,j){
+
+             //   }
+        //}
+       //}
 		//DAMA MOVIMENTO:
-		// if(        (((tab[i][j]==3)  && (((a+b)==(i+j)) || (abs(a-b)==(abs(i-j))))) && (tab[a][b]==0))        )
-		// {
-        //            auxI=i;
-        //            auxJ=j;
-        //            c=0;
-        //            p=0;
-		// 	if( a>i )
-		// 	{
-		// 		for(i,j;i<10, j>0;i++,j--)
-		// 		{
+
+		/*if(        (((tab[i][j]==3)  && (((a+b)==(i+j)) || (abs(a-b)==(abs(i-j))))) && (tab[a][b]==0))        )
+		 {
+                    auxI=i;
+                    auxJ=j;
+                    c=0;
+                    p=0;
+		 	if( a>i )
+		 	{
+		 		for(i,j;i<10, j>0;i++,j--)
+		 		{
             //Condição para verificar se o movimento é valido ou invalido
-		// 			if(tab[i][j]%2!=0)
-		// 			{
-        //                 c++;
-    	// 				break;
-		// 			}
-		// 			if(      (tab[i][j]==0 ||   (((tab[i][j]==2) || (tab[i][j]==4)) && (tab[i+1][j-1]==0)))              )
-		// 			{
-		// 				continue;
-		// 			}
-		// 			else
-		// 			{
-        //                 p++;
-        //             }
-		// 		}
-		// 		if(c==0 && p==0)
-		// 		{
-        //                 for(auxI,auxJ;auxI<10, auxJ>0;i++,j--)
-        //                 {
-        //                                        tab[auxI][auxJ]=0;
-        //                 }
-        //                 tab[a][b]=3;
-        //         }
-		// 	}
-		// 	if( a<i )
-		// 	{
-		// 		for(i,j;i>0, j<10;i--,j++)
-		// 		{
-		// 			if(tab[i][j]%2!=0)
-		// 			{
-        //                 c++;
-    	// 				break;
-		// 			}
-		// 			if(  (tab[i][j]==0 ||   (((tab[i][j]==2) || (tab[i][j]==4)) && (tab[i-1][j+1]==0)))             )
-		// 			{
-		// 				continue;
-		// 			}
-		// 			else
-		// 			{
-        //                 p++;
-        //             }
-		// 		}
-		// 		if(c==0 && p==0)
-		// 		{
-        //                 for(auxI,auxJ;auxI>0, auxJ<10;i--,j++)
-        //                 {
-        //                                        tab[auxI][auxJ]=0;
-        //                 }
-        //                 tab[a][b]=3;
-        //         }
-		// 	}
-		// }
+		 			if(tab[i][j]%2!=0)
+		 			{
+                         c++;
+                         printf("-119");
+    	 				break;
+		 			}
+		 			if(      (tab[i][j]==0 ||   (((tab[i][j]==2) || (tab[i][j]==4)) && (tab[i+1][j-1]==0)))              )
+		 			{
+		 			    printf("-123");
+		 				continue;
+		 			}
+		 			else
+		 			{printf("-128");
+                         //p++;
+                     }
+		 		}
+		 		if(c==0 && p==0)
+		 		{printf("-133");
+                         for(auxI,auxJ;auxI<10, auxJ>0;auxI++,auxJ--)
+                         {printf("-135 ");
+                                                tab[auxI][auxJ]=0;
+                         }
+                         tab[a][b]=3;
+                         printf("-139 ");
+                 }
+		 	}
+
+		 	if( a<i )
+		 	{ printf("-140 a = %d, b = %d, i = %d, j = %d \n",a,b,i,j);
+		 	    if(b>j){
+                    printf("-142");
+		 		for(i,j;i>0, j<10;i--,j++)
+		 		{
+		 			if(tab[i][j]%2!=0)
+		 			{
+                         c++;
+    	 				break;
+		 			}
+		 			printf("-149");
+		 			if(  (tab[i][j]==0 ||   (((tab[i][j]==2) || (tab[i][j]==4)) && (tab[i-1][j+1]==0)))             )
+		 			{
+		 			    printf("-152");
+		 				continue;
+		 			}
+		 			else
+		 			{
+                         p++;
+                     }
+		 		}
+		 		if(c==0 && p==0)
+		 		{
+                         for(auxI,auxJ;auxI>0, auxJ<10;i--,j++)
+                         {
+                            tab[auxI][auxJ]=0;
+                         }
+                         tab[a][b]=3;
+                 }
+		 	}
+		 	}
+		 }*/
 
 
-        // if (tab[i][j]==3)
-        // {
-        //     //for (i,j;i<10, j>0;i++,j--){
-            
-        //         if ((((((((a == i+1) || (a == i+2)|| (a == i-1)) || (a == i-2))&& (( a >= 0 ) && (a < 10))) &&  (((b == j+1) || (b == j+2)|| (b == j-1) || (b == j-2)) && (( b >= 0 ) && (b < 10)))) && tab[a][b]== 0) && tab[i][j] == 3))
-        //         {
-        //             tab[i][j] = 0;
-        //             tab[a][b] = 3;
-        //             break;
-        //         }
-        //    // } 
-            
-        // }
-        
+        //MOVIMENTO DA DAMA OFICIAL SEM OBSTACULOS
+         /*if (tab[i][j]==3)
+         {
+                 if(        (((tab[i][j]==3)  && (((a+b)==(i+j)) || (abs(a-b)==(abs(i-j))))) && (tab[a][b]==0))        )
+
+                 {
+                     printf("Linha 184\n");
+                     tab[i][j] = 0;
+                     tab[a][b] = 3;
+                     printf("190\n");
+                     break;
+                 }
+
+         }*/
+
+         //MOVIMENTO DAMA COOOOM OBSTACULOS
+        if (tab[i][j]==3)
+         {
+                 if(        (((tab[i][j]==3)  && (((a+b)==(i+j)) || (abs(a-b)==(abs(i-j))))) && (tab[a][b]==0))        )
+
+                 {
+                     auxI=i;
+                     auxJ=j;
+                     if( a>i )
+                    {
+                        for(i,j;i<10, j>0;i++,j--)
+                        {
+                            //if(      (tab[i][j]==0 ||   (((tab[i][j]==2) || (tab[i][j]==4)) && (tab[i+1][j-1]==0))) )
+                            if(tab[i+1][j-1]!=0 )
+                            {
+                            printf("Movimento inválido - linha 209!");
+                            break;
+
+                            }
+
+                         }
+                         /*printf("Linha 214\n");
+                         tab[auxI][auxJ] = 0;
+                         tab[a][b] = 3;
+                         printf("217\n");
+                         break;*/
+
+                    }
+                    /* printf("Linha 218\n");
+                     tab[auxI][auxJ] = 0;
+                     tab[a][b] = 3;
+                     printf("221\n");
+                     break;*/
+
+                 }
+            printf("Movimento inválido - linha 229");
+         }
 
 
 		//CAPTURA
@@ -201,26 +256,34 @@ int main(void)
             break;
       }
       //MOVIMENTO
-		if( ((((((a == i+1) || (a == i-1)) && (( a >= 0 ) && (a < 10))) &&  (((b == j+1) || (b == j-1)) && (( b >= 0 ) && (b < 10)))) && tab[a][b]==0) && tab[i][j] == 1) )
+      printf("Antes do movimento\n");
+      if(tab[i][j] == 1)
+      {
+         if(((((a == i+1) || (a == i-1)) && (( a >= 0 ) && (a < 10))) &&  (((b == j+1) || (b == j-1)) && (( b >= 0 ) && (b < 10)))) && (tab[a][b]==0 && tab[i][j] == 1))
 		{
+
+            printf("Dentro do if 229\n");
 		    tab[i][j] = 0;
             tab[a][b] = 1;
             break;
       }
       else
       {
-          printf("movimento invalido");
+          printf("Dentro do else 236\n");
+          printf("movimento invalido - linha 273");
           continue;
       }
       }
-        system("CLS");
+      }
+
+        //system("CLS");
 
         //VERIFICA SE VIROU DAMA:
         for(i=0;i<10;i++)
         {
-			if(tab[i][4]==1)
+			if(tab[i][5]==1)
 			{
-				tab[i][4]=3;
+				tab[i][5]=3;
 			}
 		}
 
