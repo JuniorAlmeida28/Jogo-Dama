@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-int main()
+int main(void)
 {
 
     char tab[8][8]; // Tabuleiro 8X8.
@@ -12,10 +12,6 @@ int main()
     int aux = 0;    // Auxiliar de posição.
     int fLinha;     // fLinha posição para onde a peça será movida.
     int fColuna;    // fColuna posição para onde a peça será movida.
-    int c;
-    int p;
-    int auxI;
-    int auxJ;
     int pretas = 1;
     int brancas = 1;
 
@@ -33,7 +29,7 @@ int main()
         {
             aux = 0;
         }
-        for (iColuna = 0; iColuna < 8; iColuna++, aux++)
+        for (iColuna = 0; iColuna < 8; iColuna++, aux++)//iMPRIME AS PRETAS
         {
 
             if (aux % 2 == 0)
@@ -64,7 +60,7 @@ int main()
         {
             aux = 0;
         }
-        for (iColuna = 0; iColuna < 8; iColuna++, aux++)
+        for (iColuna = 0; iColuna < 8; iColuna++, aux++)// iMPRIME AS BRANCAS
         {
             if (aux % 2 == 0)
             {
@@ -287,7 +283,7 @@ int main()
                     printf("movimento invalido");
                     continue;
                 }
-           break; 
+           
         }
         system("CLS");
 
@@ -516,7 +512,7 @@ int main()
                     printf("movimento invalido");
                     continue;
                 }
-            break;
+            
         }
         system("CLS");
 
