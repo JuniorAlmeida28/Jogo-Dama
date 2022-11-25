@@ -8,6 +8,7 @@
 int main(void)
 {
 	int tab[10][10], i, j, aux=0, a,b,c,p,auxI,auxJ,pretas=1, brancas=1; //Tabuleiro 10X10, auxiliares
+	int cont=0;
 
    // CRIAÇÃO E IMPRESSÃO DO TABULEIRO
    // UTILIZA UMA VARIÁVEL AUXILIAR PARA QUE AS PEÇAS SEJAM DISPOSTAS DE MANEIRA SIM/NAO/SIM
@@ -53,7 +54,7 @@ int main(void)
 		{
 			if(aux % 2 == 0)
 			{
-				tab[i][j] = 0;
+				tab[i][j] = 2;
 			}
 			else
 			{
@@ -77,7 +78,8 @@ int main(void)
 	}
 	printf("  |________________________________|\n");
     printf("    0  1  2  3  4  5  6  7  8  9");
-
+	printf("\n\nTAB INICIO");
+	printf("\n\nContador: %d\n\n", cont);
 	//MOVIMENTO DAS PEÇAS:
     //A CONDIÇÃO PARA O MOVIMENTO DAS PEÇAS É DE QUE A LINHA E COLUNA DEVEM VARIAR APENAS UMA POSIÇÃO E NAO DEVE TER NENHUMA PEÇA NO LUGAR.
     //É USADO UM LAÇO EM LOOP INFINITO ATÉ QUE O JOGADOR FAÇA O MOVIMENTO. O TABULEIRO É LIMPO A CADA MOVIMENTO VÁLIDO.
@@ -175,6 +177,28 @@ int main(void)
 		 	}
 		 }*/
 
+		//teste
+		if (tab[i][j]==9)
+         {
+                 if  (a==i || b==j || tab[i][j]!=3 || tab[a][b]==3 || tab[a][b]==1 || tab[a][b]==2 || tab[a][b]==4)
+                {
+                  printf("invalido");
+				  break;
+                }
+				if (b > j)//subindo as linhas ou de B para baixo!
+            	{
+              		if (a > i)//pela direita
+              		{
+                		if(i-j != a-b)
+						{
+                    		printf("\nVocê só pode se movimentar pela diagonal\n");
+                    	
+                		}
+
+					}
+
+				}
+         }
 
         //MOVIMENTO DA DAMA OFICIAL SEM OBSTACULOS
          /*if (tab[i][j]==3)
@@ -182,7 +206,7 @@ int main(void)
                  if(        (((tab[i][j]==3)  && (((a+b)==(i+j)) || (abs(a-b)==(abs(i-j))))) && (tab[a][b]==0))        )
 
                  {
-                     printf("Linha 184\n");
+                     printf("Linha 187\n");
                      tab[i][j] = 0;
                      tab[a][b] = 3;
                      printf("190\n");
@@ -199,34 +223,55 @@ int main(void)
                  {
                      auxI=i;
                      auxJ=j;
-                     if( a>i )
+					 
+					 
+					 //MOVIMENTO DAMA PARA DIREITA CIMA
+                     if( a>i && b<j )
                     {
-                        for(i,j;i<10, j>0;i++,j--)
+                        for(auxI, auxJ; auxI<a, auxJ>b; auxI++,auxJ--)
                         {
-                            //if(      (tab[i][j]==0 ||   (((tab[i][j]==2) || (tab[i][j]==4)) && (tab[i+1][j-1]==0))) )
-                            if(tab[i+1][j-1]!=0 )
-                            {
-                            printf("Movimento inválido - linha 209!");
-                            break;
+							if(tab[auxI][auxJ]==1)
+							{
+								printf("Linha 234\n");
+                         		//tab[auxI][auxJ] = 0;
+                         		//tab[a][b] = 3;
+                         		//printf("218\n");
+								//break;
+								
+                         		;
+							}else if(tab[i][j]==)
+							{
+								printf("Linha 215\n");
+                         		tab[i][j] = 0;
+                         		tab[a][b] = 3;
+                         		printf("218\n");
+								break;
+							}
+							
+                            
 
-                            }
-
+							
+							
+							
                          }
-                         /*printf("Linha 214\n");
-                         tab[auxI][auxJ] = 0;
-                         tab[a][b] = 3;
-                         printf("217\n");
-                         break;*/
+                         //printf("Linha 217\n");
+                         //tab[auxI][auxJ] = 0;
+                         //tab[a][b] = 3;
+                         //printf("220\n");
+                         //break;
 
                     }
-                    /* printf("Linha 218\n");
-                     tab[auxI][auxJ] = 0;
-                     tab[a][b] = 3;
-                     printf("221\n");
-                     break;*/
+					//MOVIMENTO DAMA PARA ESQUERDA CIMA
+					
+                         //printf("Linha 214\n");
+                         //tab[i][j] = 0;
+                         //tab[a][b] = 3;
+                         //printf("217\n");
+                         //break;
+
 
                  }
-            printf("Movimento inválido - linha 229");
+            //printf("Movimento inválido - linha 229\n");
          }
 
 
@@ -257,8 +302,10 @@ int main(void)
       }
       //MOVIMENTO
       printf("Antes do movimento\n");
-      if(tab[i][j] == 1)
-      {
+      if (tab[i][j]==1)
+	  {
+		
+	  
          if(((((a == i+1) || (a == i-1)) && (( a >= 0 ) && (a < 10))) &&  (((b == j+1) || (b == j-1)) && (( b >= 0 ) && (b < 10)))) && (tab[a][b]==0 && tab[i][j] == 1))
 		{
 
@@ -273,9 +320,12 @@ int main(void)
           printf("movimento invalido - linha 273");
           continue;
       }
+	  }
+      
+		printf("\n294\n");
+		break;
       }
-      }
-
+		
         //system("CLS");
 
         //VERIFICA SE VIROU DAMA:
@@ -306,7 +356,9 @@ int main(void)
 	}
 	printf("  |________________________________|\n");
     printf("    0  1  2  3  4  5  6  7  8  9");
-
+	printf("\n\nTAB J1 ULTIMO");
+	cont++;
+	printf("\n\ncontador: %d\n\n", cont);
 
 
 	// 	while(1)
@@ -420,7 +472,7 @@ int main(void)
     //       continue;
     //   }
     //   }
-    //    system("CLS");
+    //    //system("CLS");
 
     //    //VERIFICA SE VIROU DAMA
     //    for(i=0;i<10;i++)
@@ -449,6 +501,7 @@ int main(void)
 	// }
 	// printf("  |________________________________|\n");
     // printf("    0  1  2  3  4  5  6  7  8  9");
+	// printf("\n\nTAB J2 ULTIMO\n\n");
 
     // //VERIFICA SE AINDA EXISTEM PEÇAS DOS JOGADORES:
     // 		for(pretas=0,brancas=0,j=0;j<10;j++)
@@ -465,6 +518,8 @@ int main(void)
 	// 				brancas++;
 	// 			}
 	// 		}}
+
+
   }
 
 
