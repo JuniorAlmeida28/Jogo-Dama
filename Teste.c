@@ -216,8 +216,7 @@ int main(void)
          }*/
 
          //MOVIMENTO DAMA COOOOM OBSTACULOS
-        if (tab[i][j]==3)
-         {
+       
                  if(        (((tab[i][j]==3)  && (((a+b)==(i+j)) || (abs(a-b)==(abs(i-j))))) && (tab[a][b]==0))        )
 
                  {
@@ -230,16 +229,11 @@ int main(void)
                     {
                         for(auxI, auxJ; auxI<a, auxJ>b; auxI++,auxJ--)
                         {
-							if(tab[auxI][auxJ]==1)
+							if(tab[auxI][auxJ]==1 || tab[auxI][auxJ]==2 || tab[auxI][auxJ]==3 || tab[auxI][auxJ]==4 )
 							{
-								printf("Linha 234\n");
-                         		//tab[auxI][auxJ] = 0;
-                         		//tab[a][b] = 3;
-                         		//printf("218\n");
-								//break;
-								
-                         		;
-							}else if(tab[i][j]==)
+								printf("movimento invalido - linha 273");
+								break;
+							}else 
 							{
 								printf("Linha 215\n");
                          		tab[i][j] = 0;
@@ -272,7 +266,7 @@ int main(void)
 
                  }
             //printf("Movimento inválido - linha 229\n");
-         }
+         
 
 
 		//CAPTURA
