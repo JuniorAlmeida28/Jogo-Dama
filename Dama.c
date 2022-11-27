@@ -52,7 +52,7 @@ int main(void)
         }
     }
 
-    for (iLinha = 5; iLinha < 8; iLinha++)
+    for (iLinha = 7; iLinha < 8; iLinha++)
     {
         if (iLinha % 2 == 0)
         {
@@ -125,12 +125,12 @@ int main(void)
                 {
                     tab[iColuna + 1][iLinha + 1] = 32;
                 }
-                else
-                {
+                // else
+                // {
                     
-                    printf("movimento invalido");
-                    continue;
-                }
+                //     printf("movimento invalido");
+                //     continue;
+                // }
 
                 tab[iColuna][iLinha] = 32;
                 tab[fColuna][fLinha] = 51;
@@ -146,12 +146,12 @@ int main(void)
                 {
                     tab[iColuna - 1][iLinha + 1] = 32;
                 }
-                else
-                {
+                // else
+                // {
                     
-                    printf("movimento invalido");
-                    continue;
-                }
+                //     printf("movimento invalido");
+                //     continue;
+                // }
 
                 tab[iColuna][iLinha] = 32;
                 tab[fColuna][fLinha] = 51;
@@ -166,12 +166,12 @@ int main(void)
                 {
                     tab[iColuna + 1][iLinha - 1] = 32;
                 }
-                else
-                {
+                // else
+                // {
                     
-                    printf("movimento invalido");
-                    continue;
-                }
+                //     printf("movimento invalido");
+                //     continue;
+                // }
 
                 tab[iColuna][iLinha] = 32;
                 tab[fColuna][fLinha] = 51;
@@ -186,12 +186,12 @@ int main(void)
                 {
                     tab[iColuna - 1][iLinha - 1] = 32;
                 }
-                else
-                {
+                // else
+                // {
                     
-                    printf("movimento invalido");
-                    continue;
-                }
+                //     printf("movimento invalido");
+                //     continue;
+                // }
 
                 tab[iColuna][iLinha] = 32;
                 tab[fColuna][fLinha] = 51;
@@ -201,13 +201,20 @@ int main(void)
 
             // Movimento dama
 
-            if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha + 1) || (fLinha == iLinha - 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 51))
+            if(        (((tab[iColuna][iLinha]==51)  && (((fLinha+fColuna)==(iLinha+iColuna)) || ((fLinha-fColuna)==(iLinha+iColuna)) || ((fLinha+fColuna)==(iLinha-iColuna)) || (abs(fLinha-fColuna)==(abs(iLinha-iColuna)) ) || (abs(fLinha+fColuna)==(abs(iLinha-iColuna)) ) || (abs(fLinha-fColuna)==(abs(iLinha+iColuna)) ) || (abs(fLinha+fColuna)==(abs(iLinha+iColuna)) ))) && (tab[fColuna][fLinha]==32))        )
+		    {printf("\n205\n");
+                tab[iColuna][iLinha] = 32;
+                tab[fColuna][fLinha] = 51;
+                break;
+            }
+
+            /*if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha + 1) || (fLinha == iLinha - 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 51))
             {
                 
                 tab[iColuna][iLinha] = 32;
                 tab[fColuna][fLinha] = 51;
                 break;
-            }
+            }*/
 
             // CAPTURA PEÇA NORMAL
 
@@ -221,7 +228,7 @@ int main(void)
                 }
                 else
                 {
-
+                    printf("\n231\n");
                     printf("movimento invalido");
                     continue;
                 }
@@ -367,7 +374,7 @@ int main(void)
                 }
                 else
                 {
-
+                    printf("\n377\n");
                     printf("movimento invalido");
                     continue;
                 }
@@ -512,7 +519,7 @@ int main(void)
                 }
                 else
                 {
-
+                    printf("\n522\n");
                     printf("movimento invalido");
                     continue;
                 }
@@ -658,7 +665,7 @@ int main(void)
                 }
                 else
                 {
-
+                    printf("\n668\n");
                     printf("movimento invalido");
                     continue;
                 }
@@ -797,7 +804,9 @@ int main(void)
 
             if (pLinha == 10 && cColuna == 10)
             {
-
+                
+                    
+                
                 if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha + 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 49))
                 {
 
@@ -807,10 +816,11 @@ int main(void)
                 }
                 else
                 {
-
+                    printf("817");
                     printf("movimento invalido");
                     continue;
                 }
+                
             }
         }
         // VOLTA A VALER 10
@@ -821,9 +831,9 @@ int main(void)
         // VERIFICA SE VIROU DAMA:
         for (iColuna = 0; iColuna < 8; iColuna++)
         {
-            if (tab[iColuna][7] == 49)
+            if (tab[iColuna][4] == 49)
             {
-                tab[iColuna][7] = 51;
+                tab[iColuna][4] = 51;
             }
         }
 
