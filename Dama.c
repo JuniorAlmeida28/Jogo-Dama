@@ -6,18 +6,16 @@
 int main(void)
 {
 
-    char tab[8][8];    // Tabuleiro 8X8.
-    int iColuna;       // Posição inicial.
-    int iLinha;        // Posição inicial.
-    int aux = 0;       // Auxiliar de posição.
-    int fLinha;        // fLinha posição para onde a peça será movida.
-    int fColuna;       // fColuna posição para onde a peça será movida.
+    char tab[8][8]; // Tabuleiro 8X8.
+    int iColuna;    // Posição inicial.
+    int iLinha;     // Posição inicial.
+    int aux = 0;    // Auxiliar de posição.
+    int fLinha;     // fLinha posição para onde a peça será movida.
+    int fColuna;    // fColuna posição para onde a peça será movida.
     int pretas = 1;
     int brancas = 1;
-    int pLinha = 10;   // Auxiliar para obrigação de captura
-    int cColuna = 10;  // Auxiliar para obrigação de captura
-    
-    
+    int pLinha = 10;  // Auxiliar para obrigação de captura
+    int cColuna = 10; // Auxiliar para obrigação de captura
 
     // CRIAÇÃO E IMPRESSÃO DO TABULEIRO
     // UTILIZA UMA VARIÁVEL AUXILIAR PARA QUE AS PEÇAS SEJAM DISPOSTAS DE MANEIRA SIM/NAO/SIM
@@ -104,39 +102,32 @@ int main(void)
         while (1)
         {
 
-            
-            
-            
             printf("\n\nJogador 1 \n");
             scanf("%d %d", &iLinha, &iColuna);
             scanf("%d %d", &fLinha, &fColuna);
 
-            
-
-
-            //OBRIGA A CAPTURAR DEPOIS DO MOVIMENTO DE CAPTURA
+            // OBRIGA A CAPTURAR DEPOIS DO MOVIMENTO DE CAPTURA
             if (pLinha != iLinha && cColuna != iColuna || pLinha == iLinha && cColuna != iColuna || pLinha != iLinha && cColuna == iColuna)
             {
-                if(pLinha != 10 || cColuna != 10){
-                printf("\nA captura %c obrigatoria na Linha %d Coluna %d\n",130, pLinha, cColuna);
-                continue;
+                if (pLinha != 10 || cColuna != 10)
+                {
+                    printf("\nA captura %c obrigatoria na Linha %d Coluna %d\n", 130, pLinha, cColuna);
+                    continue;
                 }
             }
-            
-            
 
             // Captura dama
             //  Captura para direita e para baixo
             if (((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 51) && tab[fColuna][fLinha] == 32)
             {
-                printf("\n-115\n");
+                
                 if ((tab[iColuna + 1][iLinha + 1] == 50) || (tab[iColuna + 1][iLinha + 1] == 52))
                 {
                     tab[iColuna + 1][iLinha + 1] = 32;
                 }
                 else
                 {
-                    printf("\n-121\n");
+                    
                     printf("movimento invalido");
                     continue;
                 }
@@ -149,7 +140,7 @@ int main(void)
             // Captura para esqueda e para baixo
             if (((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 51) && tab[fColuna][fLinha] == 32)
             {
-                printf("\n-133\n");
+                
 
                 if ((tab[iColuna - 1][iLinha + 1] == 50) || (tab[iColuna - 1][iLinha + 1] == 52))
                 {
@@ -157,7 +148,7 @@ int main(void)
                 }
                 else
                 {
-                    printf("\n-140\n");
+                    
                     printf("movimento invalido");
                     continue;
                 }
@@ -170,14 +161,14 @@ int main(void)
             // Captura para direita e para cima
             if (((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 51) && tab[fColuna][fLinha] == 32)
             {
-                printf("\n-152\n");
+                
                 if ((tab[iColuna + 1][iLinha - 1] == 50) || (tab[iColuna + 1][iLinha - 1] == 52))
                 {
                     tab[iColuna + 1][iLinha - 1] = 32;
                 }
                 else
                 {
-                    printf("\n-158\n");
+                    
                     printf("movimento invalido");
                     continue;
                 }
@@ -190,14 +181,14 @@ int main(void)
             // Captura para esquerda e para cima
             if (((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 51) && tab[fColuna][fLinha] == 32)
             {
-                printf("\n-170\n");
+                
                 if ((tab[iColuna - 1][iLinha - 1] == 50) || (tab[iColuna - 1][iLinha - 1] == 52))
                 {
                     tab[iColuna - 1][iLinha - 1] = 32;
                 }
                 else
                 {
-                    printf("\n-176\n");
+                    
                     printf("movimento invalido");
                     continue;
                 }
@@ -212,7 +203,7 @@ int main(void)
 
             if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha + 1) || (fLinha == iLinha - 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 51))
             {
-                printf("\n-190\n");
+                
                 tab[iColuna][iLinha] = 32;
                 tab[fColuna][fLinha] = 51;
                 break;
@@ -223,14 +214,14 @@ int main(void)
             // Captura para direita E PARA BAIXO
             if (((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 49) && tab[fColuna][fLinha] == 32)
             {
-                
+
                 if ((tab[iColuna + 1][iLinha + 1] == 50) || (tab[iColuna + 1][iLinha + 1] == 52))
                 {
                     tab[iColuna + 1][iLinha + 1] = 32;
                 }
                 else
                 {
-                    
+
                     printf("movimento invalido");
                     continue;
                 }
@@ -264,11 +255,10 @@ int main(void)
                     }
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-                    
+
                     pLinha = fLinha;
                     cColuna = fColuna;
-                
-            
+
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
@@ -296,7 +286,7 @@ int main(void)
                     }
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-                    
+
                     pLinha = fLinha;
                     cColuna = fColuna;
                     continue;
@@ -327,7 +317,7 @@ int main(void)
                     }
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-                    
+
                     pLinha = fLinha;
                     cColuna = fColuna;
                     continue;
@@ -370,14 +360,14 @@ int main(void)
             // Captura para direita E PARA CIMA
             if (((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 49) && tab[fColuna][fLinha] == 32)
             {
-                
+
                 if ((tab[iColuna + 1][iLinha - 1] == 50) || (tab[iColuna + 1][iLinha - 1] == 52))
                 {
                     tab[iColuna + 1][iLinha - 1] = 32;
                 }
                 else
                 {
-                    
+
                     printf("movimento invalido");
                     continue;
                 }
@@ -515,7 +505,6 @@ int main(void)
             // Captura para esqueda E PARA BAIXO
             if (((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 49) && tab[fColuna][fLinha] == 32)
             {
-                
 
                 if ((tab[iColuna - 1][iLinha + 1] == 50) || (tab[iColuna - 1][iLinha + 1] == 52))
                 {
@@ -523,7 +512,7 @@ int main(void)
                 }
                 else
                 {
-                    
+
                     printf("movimento invalido");
                     continue;
                 }
@@ -558,9 +547,9 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
-                     pLinha = fLinha;
-                     cColuna = fColuna;
-                    
+                    pLinha = fLinha;
+                    cColuna = fColuna;
+
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
@@ -619,7 +608,7 @@ int main(void)
                     }
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-                    
+
                     pLinha = fLinha;
                     cColuna = fColuna;
                     continue;
@@ -662,7 +651,6 @@ int main(void)
             // Captura para esqueda E PARA CIMA
             if (((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 49) && tab[fColuna][fLinha] == 32)
             {
-                
 
                 if ((tab[iColuna - 1][iLinha - 1] == 50) || (tab[iColuna - 1][iLinha - 1] == 52))
                 {
@@ -670,7 +658,7 @@ int main(void)
                 }
                 else
                 {
-                    
+
                     printf("movimento invalido");
                     continue;
                 }
@@ -807,30 +795,28 @@ int main(void)
 
             // Movimento da peça
 
-        if (pLinha == 10 && cColuna == 10)
-        {
-            
-                
-            if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha + 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 49) )
+            if (pLinha == 10 && cColuna == 10)
             {
-                
-                tab[iColuna][iLinha] = 32;
-                tab[fColuna][fLinha] = 49;
-                break;
-            }
-            else
-            {
-                
-                printf("movimento invalido");
-                continue;
+
+                if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha + 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 49))
+                {
+
+                    tab[iColuna][iLinha] = 32;
+                    tab[fColuna][fLinha] = 49;
+                    break;
+                }
+                else
+                {
+
+                    printf("movimento invalido");
+                    continue;
+                }
             }
         }
-            
-        }
-        //VOLTA A VALER 10
+        // VOLTA A VALER 10
         pLinha = 10;
         cColuna = 10;
-        //system("CLS");
+        system("CLS");
 
         // VERIFICA SE VIROU DAMA:
         for (iColuna = 0; iColuna < 8; iColuna++)
@@ -885,12 +871,13 @@ int main(void)
                 scanf("%d %d", &fLinha, &fColuna);
 
                 if (pLinha != iLinha && cColuna != iColuna || pLinha == iLinha && cColuna != iColuna || pLinha != iLinha && cColuna == iColuna)
-            {
-                if(pLinha != 10 || cColuna != 10){
-                printf("\nA captura %c obrigatoria na Linha %d Coluna %d\n",130, pLinha, cColuna);
-                continue;
+                {
+                    if (pLinha != 10 || cColuna != 10)
+                    {
+                        printf("\nA captura %c obrigatoria na Linha %d Coluna %d\n", 130, pLinha, cColuna);
+                        continue;
+                    }
                 }
-            }
 
                 // MOVIMENTO DE CAPTURA DA DAMA
 
@@ -1540,26 +1527,26 @@ int main(void)
 
                 // Movimento da peça
                 if (pLinha == 10 && cColuna == 10)
-        {
-                if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha - 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 50))
                 {
-                    tab[iColuna][iLinha] = 32;
-                    tab[fColuna][fLinha] = 50;
-                    break;
+                    if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha - 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 50))
+                    {
+                        tab[iColuna][iLinha] = 32;
+                        tab[fColuna][fLinha] = 50;
+                        break;
+                    }
+                    else
+                    {
+                        printf("movimento invalido");
+                        continue;
+                    }
                 }
-                else
-                {
-                    printf("movimento invalido");
-                    continue;
-                }
-        }
             }
             break;
         }
-        //VOLTA A VALER 10
+        // VOLTA A VALER 10
         pLinha = 10;
         cColuna = 10;
-        //system("CLS");
+        system("CLS");
 
         // VERIFICA SE VIROU DAMA
         for (iColuna = 0; iColuna < 8; iColuna++)
