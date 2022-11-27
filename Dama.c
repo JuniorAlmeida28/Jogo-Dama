@@ -116,105 +116,287 @@ int main(void)
                 }
             }
 
-            // Captura dama
-            //  Captura para direita e para baixo
-            if (((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 51) && tab[fColuna][fLinha] == 32)
-            {
-                
-                if ((tab[iColuna + 1][iLinha + 1] == 50) || (tab[iColuna + 1][iLinha + 1] == 52))
+            // CAPTURA DAMA
+            if(        (((tab[iColuna][iLinha]==51)  && (((fLinha+fColuna)==(iLinha+iColuna)) || ((fLinha-fColuna)==(iLinha+iColuna)) || ((fLinha+fColuna)==(iLinha-iColuna)) || (abs(fLinha-fColuna)==(abs(iLinha-iColuna)) ) || (abs(fLinha+fColuna)==(abs(iLinha-iColuna)) ) || (abs(fLinha-fColuna)==(abs(iLinha+iColuna)) ) || (abs(fLinha+fColuna)==(abs(iLinha+iColuna)) ))) && (tab[fColuna][fLinha]==32))        )
+		    {
+                if ((fLinha > iLinha) && (fColuna > iColuna)) //CAPTURA DAMA MOVIMENTO DIREITA INFERIOR
+                    {
+                     printf("\nLinha 124\n");
+                        
+                        int x, y;
+                        for (y = iLinha + 1, x = iColuna + 1; y < fLinha, x < fColuna; y++, x++)
+                        {
+                            if (tab[x][y] != 32)
+                            {
+                                if ((tab[x][y] == 50) || (tab[x][y] == 52))
+                                {
+                                    tab[x][y] = 32;
+                                }
+                                
+                                tab[iColuna][iLinha] = 32;
+                                tab[fColuna][fLinha] = 51;
+
+                                system("CLS");
+                    // IMPRESSãO DO TABULEIRO:
+                    printf("    0   1   2   3   4   5   6   7\n");
+                    printf("  |---|---|---|---|---|---|---|---|\n");
+                    for (iLinha = 0; iLinha < 8; iLinha++)
+                    {
+                        printf("%d ", iLinha);
+                        for (iColuna = 0; iColuna < 8; iColuna++)
+                        {
+
+                            printf("| %c ", tab[iColuna][iLinha]);
+
+                            if (iColuna == 7)
+                            {
+                                printf("|%d \n", iLinha);
+                            }
+                        }
+
+                        printf("  |---|---|---|---|---|---|---|---|\n");
+                    }
+                    printf("    0   1   2   3   4   5   6   7");
+
+                                // VERIFICA SE AINDA EXISTE PEÇAS A SEREM CAPTURADAS
+                // VERIFICA PARA BAIXO E PARA DIREITA
+                if (((((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8))) && (tab[fColuna + 2][fLinha + 2] == 32)) && (fColuna + 2 >= 0) && (fColuna + 2 < 8)))
                 {
-                    tab[iColuna + 1][iLinha + 1] = 32;
+                    system("CLS");
+                    // IMPRESSãO DO TABULEIRO:
+                    printf("    0   1   2   3   4   5   6   7\n");
+                    printf("  |---|---|---|---|---|---|---|---|\n");
+                    for (iLinha = 0; iLinha < 8; iLinha++)
+                    {
+                        printf("%d ", iLinha);
+                        for (iColuna = 0; iColuna < 8; iColuna++)
+                        {
+
+                            printf("| %c ", tab[iColuna][iLinha]);
+
+                            if (iColuna == 7)
+                            {
+                                printf("|%d \n", iLinha);
+                            }
+                        }
+
+                        printf("  |---|---|---|---|---|---|---|---|\n");
+                    }
+                    printf("    0   1   2   3   4   5   6   7");
+                    printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
+
+                    pLinha = fLinha;
+                    cColuna = fColuna;
+
+                    continue;
                 }
-                // else
-                // {
-                    
-                //     printf("movimento invalido");
-                //     continue;
-                // }
-
-                tab[iColuna][iLinha] = 32;
-                tab[fColuna][fLinha] = 51;
-
-                break;
-            }
-            // Captura para esqueda e para baixo
-            if (((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 51) && tab[fColuna][fLinha] == 32)
-            {
-                
-
-                if ((tab[iColuna - 1][iLinha + 1] == 50) || (tab[iColuna - 1][iLinha + 1] == 52))
+                // VERIFICA PARA CIMA E PARA DIREITA
+                if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8))) && (tab[fColuna + 2][fLinha - 2] == 32) && (fColuna + 2 >= 0) && (fColuna + 2 < 8))
                 {
-                    tab[iColuna - 1][iLinha + 1] = 32;
+                    system("CLS");
+                    // IMPRESSãO DO TABULEIRO:
+                    printf("    0   1   2   3   4   5   6   7\n");
+                    printf("  |---|---|---|---|---|---|---|---|\n");
+                    for (iLinha = 0; iLinha < 8; iLinha++)
+                    {
+                        printf("%d ", iLinha);
+                        for (iColuna = 0; iColuna < 8; iColuna++)
+                        {
+
+                            printf("| %c ", tab[iColuna][iLinha]);
+
+                            if (iColuna == 7)
+                            {
+                                printf("|%d \n", iLinha);
+                            }
+                        }
+
+                        printf("  |---|---|---|---|---|---|---|---|\n");
+                    }
+                    printf("    0   1   2   3   4   5   6   7");
+                    printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
+
+                    pLinha = fLinha;
+                    cColuna = fColuna;
+                    continue;
                 }
-                // else
-                // {
-                    
-                //     printf("movimento invalido");
-                //     continue;
-                // }
 
-                tab[iColuna][iLinha] = 32;
-                tab[fColuna][fLinha] = 51;
-
-                break;
-            }
-            // Captura para direita e para cima
-            if (((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 51) && tab[fColuna][fLinha] == 32)
-            {
-                
-                if ((tab[iColuna + 1][iLinha - 1] == 50) || (tab[iColuna + 1][iLinha - 1] == 52))
+                // VERIFICA PARA ESQUERDA E PARA BAIXO
+                if (((tab[fColuna - 1][fLinha + 1] == 50) || (tab[fColuna - 1][fLinha + 1] == 52) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8))) && (tab[fColuna - 2][fLinha + 2] == 32) && (fColuna - 2 >= 0) && (fColuna - 2 < 8))
                 {
-                    tab[iColuna + 1][iLinha - 1] = 32;
+                    system("CLS");
+                    // IMPRESSãO DO TABULEIRO:
+                    printf("    0   1   2   3   4   5   6   7\n");
+                    printf("  |---|---|---|---|---|---|---|---|\n");
+                    for (iLinha = 0; iLinha < 8; iLinha++)
+                    {
+                        printf("%d ", iLinha);
+                        for (iColuna = 0; iColuna < 8; iColuna++)
+                        {
+
+                            printf("| %c ", tab[iColuna][iLinha]);
+
+                            if (iColuna == 7)
+                            {
+                                printf("|%d \n", iLinha);
+                            }
+                        }
+
+                        printf("  |---|---|---|---|---|---|---|---|\n");
+                    }
+                    printf("    0   1   2   3   4   5   6   7");
+                    printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
+
+                    pLinha = fLinha;
+                    cColuna = fColuna;
+                    continue;
                 }
-                // else
-                // {
-                    
-                //     printf("movimento invalido");
-                //     continue;
-                // }
 
-                tab[iColuna][iLinha] = 32;
-                tab[fColuna][fLinha] = 51;
-
-                break;
-            }
-            // Captura para esquerda e para cima
-            if (((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 51) && tab[fColuna][fLinha] == 32)
-            {
-                
-                if ((tab[iColuna - 1][iLinha - 1] == 50) || (tab[iColuna - 1][iLinha - 1] == 52))
+                // VERIFICA PARA ESQUERDA E PARA CIMA
+                if (((tab[fColuna - 1][fLinha - 1] == 50) || (tab[fColuna - 1][fLinha - 1] == 52) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8))) && (tab[fColuna - 2][fLinha - 2] == 32) && (fColuna - 2 >= 0) && (fColuna - 2 < 8))
                 {
-                    tab[iColuna - 1][iLinha - 1] = 32;
+                    system("CLS");
+                    // IMPRESSãO DO TABULEIRO:
+                    printf("    0   1   2   3   4   5   6   7\n");
+                    printf("  |---|---|---|---|---|---|---|---|\n");
+                    for (iLinha = 0; iLinha < 8; iLinha++)
+                    {
+                        printf("%d ", iLinha);
+                        for (iColuna = 0; iColuna < 8; iColuna++)
+                        {
+
+                            printf("| %c ", tab[iColuna][iLinha]);
+
+                            if (iColuna == 7)
+                            {
+                                printf("|%d \n", iLinha);
+                            }
+                        }
+
+                        printf("  |---|---|---|---|---|---|---|---|\n");
+                    }
+                    printf("    0   1   2   3   4   5   6   7");
+                    printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
+
+                    pLinha = fLinha;
+                    cColuna = fColuna;
+                    continue;
                 }
-                // else
-                // {
-                    
-                //     printf("movimento invalido");
-                //     continue;
-                // }
+                                
 
-                tab[iColuna][iLinha] = 32;
-                tab[fColuna][fLinha] = 51;
+                                break;
+                            }
+                        }   
+                    }    
+            }    
 
-                break;
-            }
+
+
+
+            
 
             // Movimento dama
 
             if(        (((tab[iColuna][iLinha]==51)  && (((fLinha+fColuna)==(iLinha+iColuna)) || ((fLinha-fColuna)==(iLinha+iColuna)) || ((fLinha+fColuna)==(iLinha-iColuna)) || (abs(fLinha-fColuna)==(abs(iLinha-iColuna)) ) || (abs(fLinha+fColuna)==(abs(iLinha-iColuna)) ) || (abs(fLinha-fColuna)==(abs(iLinha+iColuna)) ) || (abs(fLinha+fColuna)==(abs(iLinha+iColuna)) ))) && (tab[fColuna][fLinha]==32))        )
-		    {printf("\n205\n");
-                tab[iColuna][iLinha] = 32;
-                tab[fColuna][fLinha] = 51;
-                break;
+		    {
+                if ((fLinha > iLinha) && (fColuna > iColuna)) //MOVIMENTO DIREITA INFERIOR
+                    {
+                        printf("\nLinha 206");
+                        int caminhoLivre = 1;
+                        int x, y;
+                        for (y = iLinha + 1, x = iColuna + 1; y < fLinha, x < fColuna; y++, x++)
+                        {
+                            if (tab[x][y] != 32)
+                            {
+                                printf("\nDiferente de espaco vazio\nx = %d, y = %d, tab[x][y] = %d", x, y, tab[x][y]);
+                                caminhoLivre = 0;
+                                break;
+                            }
+                        }
+                        if (caminhoLivre){
+                            printf("\nlivre\n");
+                            tab[iColuna][iLinha] = 32;
+                            tab[fColuna][fLinha] = 51;
+                            break;
+                        } 
+                        else 
+                        {
+                            printf("\nExiste uma peça no meio do caminho:\nLinha %d\nColuna %d\n",y,x);
+                            continue;
+                        }
+                    }
+                else if ((fLinha < iLinha) && (fColuna > iColuna)) //MOVIMENTO DIREITA SUPERIOR
+                    {
+                        printf("\nLinha 139");
+                        int caminhoLivre = 1;
+                        int x, y;
+                        for (y = iLinha - 1, x = iColuna + 1; y > fLinha, x < fColuna; y--, x++)
+                        {
+                            if (tab[x][y] != 32)
+                            {
+                                printf("\nDiferente de espaco vazio\nx = %d, y = %d, tab[x][y] = %d", x, y, tab[x][y]);
+                                caminhoLivre = 0;
+                                break;
+                            }
+                        }
+                        if (caminhoLivre){
+                            printf("\nlivre\n");
+                            tab[iColuna][iLinha] = 32;
+                            tab[fColuna][fLinha] = 51;
+                            break;
+                        } else {
+                            printf("\nExiste uma peça no meio do caminho:\nLinha %d\nColuna %d\n",y,x);
+                        }
+                    }
+                else if ((fLinha > iLinha) && (fColuna < iColuna)) //MOVIMENTO ESQUERDA INFERIOR
+                    {
+                        printf("\nLinha 161");
+                        int caminhoLivre = 1;
+                        int x, y;
+                        for (y = iLinha + 1, x = iColuna - 1; y < fLinha, x > fColuna; y++, x--)
+                        {printf("\n261\n");
+                            if (tab[x][y] != 32)
+                            {
+                                printf("\nDiferente de espaco vazio\nx = %d, y = %d, tab[x][y] = %d", x, y, tab[x][y]);
+                                caminhoLivre = 0;
+                                break;
+                            }
+                        }
+                        if (caminhoLivre){
+                            printf("\nlivre\n");
+                            tab[iColuna][iLinha] = 32;
+                            tab[fColuna][fLinha] = 51;
+                            break;
+                        } else {
+                            printf("\nnao livre\n");
+                        }
+                    }
+                if ((fLinha < iLinha) && (fColuna < iColuna)) //MOVIMENTO ESQUERDA SUPERIOR
+                    {
+                        printf("\nLinha 183");
+                        int caminhoLivre = 1;
+                        int x, y;
+                        for (y = iLinha - 1, x = iColuna - 1; y < fLinha, x > fColuna; y--, x--)
+                        {
+                            if (tab[x][y] != 32)
+                            {
+                                printf("\nDiferente de espaco vazio\nx = %d, y = %d, tab[x][y] = %d", x, y, tab[x][y]);
+                                caminhoLivre = 0;
+                                break;
+                            }
+                        }
+                        if (caminhoLivre){
+                            printf("\nlivre\n");
+                            tab[iColuna][iLinha] = 32;
+                            tab[fColuna][fLinha] = 51;
+                            break;
+                        } else {
+                            printf("\nnao livre\n");
+                        }
+                    }            
             }
 
-            /*if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha + 1) || (fLinha == iLinha - 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 51))
-            {
-                
-                tab[iColuna][iLinha] = 32;
-                tab[fColuna][fLinha] = 51;
-                break;
-            }*/
+            
 
             // CAPTURA PEÇA NORMAL
 
@@ -805,8 +987,8 @@ int main(void)
             if (pLinha == 10 && cColuna == 10)
             {
                 
-                    
-                
+                if(tab[iColuna][iLinha] == 49)    
+                {
                 if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha + 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 49))
                 {
 
@@ -820,20 +1002,20 @@ int main(void)
                     printf("movimento invalido");
                     continue;
                 }
-                
+                }
             }
         }
         // VOLTA A VALER 10
         pLinha = 10;
         cColuna = 10;
-        system("CLS");
+        //system("CLS");
 
         // VERIFICA SE VIROU DAMA:
         for (iColuna = 0; iColuna < 8; iColuna++)
         {
-            if (tab[iColuna][4] == 49)
+            if (tab[iColuna][3] == 49)
             {
-                tab[iColuna][4] = 51;
+                tab[iColuna][3] = 51;
             }
         }
 
@@ -1556,7 +1738,7 @@ int main(void)
         // VOLTA A VALER 10
         pLinha = 10;
         cColuna = 10;
-        system("CLS");
+        //system("CLS");
 
         // VERIFICA SE VIROU DAMA
         for (iColuna = 0; iColuna < 8; iColuna++)
