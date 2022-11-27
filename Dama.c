@@ -6,14 +6,18 @@
 int main(void)
 {
 
-    char tab[8][8]; // Tabuleiro 8X8.
-    int iColuna;    // Posição inicial.
-    int iLinha;     // Posição inicial.
-    int aux = 0;    // Auxiliar de posição.
-    int fLinha;     // fLinha posição para onde a peça será movida.
-    int fColuna;    // fColuna posição para onde a peça será movida.
+    char tab[8][8];    // Tabuleiro 8X8.
+    int iColuna;       // Posição inicial.
+    int iLinha;        // Posição inicial.
+    int aux = 0;       // Auxiliar de posição.
+    int fLinha;        // fLinha posição para onde a peça será movida.
+    int fColuna;       // fColuna posição para onde a peça será movida.
     int pretas = 1;
     int brancas = 1;
+    int pLinha = 10;   // Auxiliar para obrigação de captura
+    int cColuna = 10;  // Auxiliar para obrigação de captura
+    
+    
 
     // CRIAÇÃO E IMPRESSÃO DO TABULEIRO
     // UTILIZA UMA VARIÁVEL AUXILIAR PARA QUE AS PEÇAS SEJAM DISPOSTAS DE MANEIRA SIM/NAO/SIM
@@ -42,7 +46,7 @@ int main(void)
             }
         }
     }
-    for (iLinha = 3; iLinha < 5; iLinha++)
+    for (iLinha = 3; iLinha < 8; iLinha++)
     {
         for (iColuna = 0; iColuna < 8; iColuna++)
         {
@@ -50,7 +54,7 @@ int main(void)
         }
     }
 
-    for (iLinha = 5; iLinha < 6; iLinha++)
+    for (iLinha = 5; iLinha < 8; iLinha++)
     {
         if (iLinha % 2 == 0)
         {
@@ -60,7 +64,7 @@ int main(void)
         {
             aux = 0;
         }
-        for (iColuna = 0; iColuna < 2; iColuna++, aux++) // iMPRIME AS BRANCAS
+        for (iColuna = 0; iColuna < 8; iColuna++, aux++) // iMPRIME AS BRANCAS
         {
             if (aux % 2 == 0)
             {
@@ -100,9 +104,26 @@ int main(void)
         while (1)
         {
 
+            
+            
+            
             printf("\n\nJogador 1 \n");
             scanf("%d %d", &iLinha, &iColuna);
             scanf("%d %d", &fLinha, &fColuna);
+
+            
+
+
+            //OBRIGA A CAPTURAR DEPOIS DO MOVIMENTO DE CAPTURA
+            if (pLinha != iLinha && cColuna != iColuna || pLinha == iLinha && cColuna != iColuna || pLinha != iLinha && cColuna == iColuna)
+            {
+                if(pLinha != 10 || cColuna != 10){
+                printf("\nA captura %c obrigatoria na Linha %d Coluna %d\n",130, pLinha, cColuna);
+                continue;
+                }
+            }
+            
+            
 
             // Captura dama
             //  Captura para direita e para baixo
@@ -202,14 +223,14 @@ int main(void)
             // Captura para direita E PARA BAIXO
             if (((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 49) && tab[fColuna][fLinha] == 32)
             {
-                printf("\n-206\n");
+                
                 if ((tab[iColuna + 1][iLinha + 1] == 50) || (tab[iColuna + 1][iLinha + 1] == 52))
                 {
                     tab[iColuna + 1][iLinha + 1] = 32;
                 }
                 else
                 {
-                    printf("\n-212\n");
+                    
                     printf("movimento invalido");
                     continue;
                 }
@@ -243,7 +264,11 @@ int main(void)
                     }
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                    
+                    pLinha = fLinha;
+                    cColuna = fColuna;
+                
+            
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
@@ -271,7 +296,9 @@ int main(void)
                     }
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                    
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
 
@@ -300,7 +327,9 @@ int main(void)
                     }
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                    
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
 
@@ -330,6 +359,8 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
 
@@ -339,14 +370,14 @@ int main(void)
             // Captura para direita E PARA CIMA
             if (((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 49) && tab[fColuna][fLinha] == 32)
             {
-                printf("\n-224\n");
+                
                 if ((tab[iColuna + 1][iLinha - 1] == 50) || (tab[iColuna + 1][iLinha - 1] == 52))
                 {
                     tab[iColuna + 1][iLinha - 1] = 32;
                 }
                 else
                 {
-                    printf("\n-1230\n");
+                    
                     printf("movimento invalido");
                     continue;
                 }
@@ -381,6 +412,8 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
@@ -409,6 +442,8 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
 
@@ -438,6 +473,8 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
 
@@ -467,6 +504,8 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
 
@@ -476,7 +515,7 @@ int main(void)
             // Captura para esqueda E PARA BAIXO
             if (((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 49) && tab[fColuna][fLinha] == 32)
             {
-                printf("\n-242\n");
+                
 
                 if ((tab[iColuna - 1][iLinha + 1] == 50) || (tab[iColuna - 1][iLinha + 1] == 52))
                 {
@@ -484,7 +523,7 @@ int main(void)
                 }
                 else
                 {
-                    printf("\n-249\n");
+                    
                     printf("movimento invalido");
                     continue;
                 }
@@ -519,6 +558,9 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                     pLinha = fLinha;
+                     cColuna = fColuna;
+                    
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
@@ -547,6 +589,8 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
 
@@ -575,7 +619,9 @@ int main(void)
                     }
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                    
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
 
@@ -605,6 +651,8 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
 
@@ -614,7 +662,7 @@ int main(void)
             // Captura para esqueda E PARA CIMA
             if (((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 49) && tab[fColuna][fLinha] == 32)
             {
-                printf("\n-261\n");
+                
 
                 if ((tab[iColuna - 1][iLinha - 1] == 50) || (tab[iColuna - 1][iLinha - 1] == 52))
                 {
@@ -622,7 +670,7 @@ int main(void)
                 }
                 else
                 {
-                    printf("\n-268\n");
+                    
                     printf("movimento invalido");
                     continue;
                 }
@@ -657,6 +705,8 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
@@ -685,6 +735,8 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
 
@@ -714,6 +766,8 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
 
@@ -743,6 +797,8 @@ int main(void)
                     printf("    0   1   2   3   4   5   6   7");
                     printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                    pLinha = fLinha;
+                    cColuna = fColuna;
                     continue;
                 }
 
@@ -751,21 +807,30 @@ int main(void)
 
             // Movimento da peça
 
-            if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha + 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 49))
+        if (pLinha == 10 && cColuna == 10)
+        {
+            
+                
+            if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha + 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 49) )
             {
-                printf("\n-284\n");
+                
                 tab[iColuna][iLinha] = 32;
                 tab[fColuna][fLinha] = 49;
                 break;
             }
             else
             {
-                printf("\n-290\n");
+                
                 printf("movimento invalido");
                 continue;
             }
         }
-        system("CLS");
+            
+        }
+        //VOLTA A VALER 10
+        pLinha = 10;
+        cColuna = 10;
+        //system("CLS");
 
         // VERIFICA SE VIROU DAMA:
         for (iColuna = 0; iColuna < 8; iColuna++)
@@ -818,6 +883,14 @@ int main(void)
                 printf("\n\nJogador 2 \n");
                 scanf("%d %d", &iLinha, &iColuna);
                 scanf("%d %d", &fLinha, &fColuna);
+
+                if (pLinha != iLinha && cColuna != iColuna || pLinha == iLinha && cColuna != iColuna || pLinha != iLinha && cColuna == iColuna)
+            {
+                if(pLinha != 10 || cColuna != 10){
+                printf("\nA captura %c obrigatoria na Linha %d Coluna %d\n",130, pLinha, cColuna);
+                continue;
+                }
+            }
 
                 // MOVIMENTO DE CAPTURA DA DAMA
 
@@ -950,6 +1023,8 @@ int main(void)
                             printf("    0   1   2   3   4   5   6   7");
                             printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
 
+                            pLinha = fLinha;
+                            cColuna = fColuna;
                             continue;
                         }
                         // VERIFICA PARA CIMA E PARA DIREITA
@@ -977,7 +1052,8 @@ int main(void)
                             }
                             printf("    0   1   2   3   4   5   6   7");
                             printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                            pLinha = fLinha;
+                            cColuna = fColuna;
                             continue;
                         }
 
@@ -1006,7 +1082,8 @@ int main(void)
                             }
                             printf("    0   1   2   3   4   5   6   7");
                             printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                            pLinha = fLinha;
+                            cColuna = fColuna;
                             continue;
                         }
 
@@ -1035,7 +1112,8 @@ int main(void)
                             }
                             printf("    0   1   2   3   4   5   6   7");
                             printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                            pLinha = fLinha;
+                            cColuna = fColuna;
                             continue;
                         }
 
@@ -1084,7 +1162,8 @@ int main(void)
                         }
                         printf("    0   1   2   3   4   5   6   7");
                         printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                        pLinha = fLinha;
+                        cColuna = fColuna;
                         continue;
                     }
                     // VERIFICA PARA CIMA E PARA DIREITA
@@ -1112,7 +1191,8 @@ int main(void)
                         }
                         printf("    0   1   2   3   4   5   6   7");
                         printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                        pLinha = fLinha;
+                        cColuna = fColuna;
                         continue;
                     }
 
@@ -1141,7 +1221,8 @@ int main(void)
                         }
                         printf("    0   1   2   3   4   5   6   7");
                         printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                        pLinha = fLinha;
+                        cColuna = fColuna;
                         continue;
                     }
 
@@ -1170,7 +1251,8 @@ int main(void)
                         }
                         printf("    0   1   2   3   4   5   6   7");
                         printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                        pLinha = fLinha;
+                        cColuna = fColuna;
                         continue;
                     }
 
@@ -1219,7 +1301,8 @@ int main(void)
                         }
                         printf("    0   1   2   3   4   5   6   7");
                         printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                        pLinha = fLinha;
+                        cColuna = fColuna;
                         continue;
                     }
                     // VERIFICA PARA CIMA E PARA DIREITA
@@ -1247,7 +1330,8 @@ int main(void)
                         }
                         printf("    0   1   2   3   4   5   6   7");
                         printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                        pLinha = fLinha;
+                        cColuna = fColuna;
                         continue;
                     }
 
@@ -1276,7 +1360,8 @@ int main(void)
                         }
                         printf("    0   1   2   3   4   5   6   7");
                         printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                        pLinha = fLinha;
+                        cColuna = fColuna;
                         continue;
                     }
 
@@ -1305,7 +1390,8 @@ int main(void)
                         }
                         printf("    0   1   2   3   4   5   6   7");
                         printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                        pLinha = fLinha;
+                        cColuna = fColuna;
                         continue;
                     }
 
@@ -1355,7 +1441,8 @@ int main(void)
                         }
                         printf("    0   1   2   3   4   5   6   7");
                         printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                        pLinha = fLinha;
+                        cColuna = fColuna;
                         continue;
                     }
                     // VERIFICA PARA CIMA E PARA DIREITA
@@ -1383,7 +1470,8 @@ int main(void)
                         }
                         printf("    0   1   2   3   4   5   6   7");
                         printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                        pLinha = fLinha;
+                        cColuna = fColuna;
                         continue;
                     }
 
@@ -1412,7 +1500,8 @@ int main(void)
                         }
                         printf("    0   1   2   3   4   5   6   7");
                         printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                        pLinha = fLinha;
+                        cColuna = fColuna;
                         continue;
                     }
 
@@ -1441,7 +1530,8 @@ int main(void)
                         }
                         printf("    0   1   2   3   4   5   6   7");
                         printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
-
+                        pLinha = fLinha;
+                        cColuna = fColuna;
                         continue;
                     }
 
@@ -1449,7 +1539,8 @@ int main(void)
                 }
 
                 // Movimento da peça
-
+                if (pLinha == 10 && cColuna == 10)
+        {
                 if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha - 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 50))
                 {
                     tab[iColuna][iLinha] = 32;
@@ -1461,10 +1552,14 @@ int main(void)
                     printf("movimento invalido");
                     continue;
                 }
+        }
             }
             break;
         }
-        system("CLS");
+        //VOLTA A VALER 10
+        pLinha = 10;
+        cColuna = 10;
+        //system("CLS");
 
         // VERIFICA SE VIROU DAMA
         for (iColuna = 0; iColuna < 8; iColuna++)
