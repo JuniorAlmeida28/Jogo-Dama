@@ -2,16 +2,18 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <locale.h>
 
 int main(void)
 {
+    setlocale(LC_ALL, "Portuguese");
 
     char tab[8][8]; // Tabuleiro 8X8.
-    int iColuna;    // Posição inicial.
-    int iLinha;     // Posição inicial.
+    int iColuna;    // Posição inicial na coluna da matriz.
+    int iLinha;     // Posição inicial na linha da matriz.
     int aux = 0;    // Auxiliar de posição.
-    int fLinha;     // fLinha posição para onde a peça será movida.
-    int fColuna;    // fColuna posição para onde a peça será movida.
+    int fLinha;     // fLinha: posição para onde a peça será movida na linha da matriz.
+    int fColuna;    // fColuna: posição para onde a peça será movida na coluna da matriz.
     int pretas = 1;
     int brancas = 1;
 
@@ -50,7 +52,7 @@ int main(void)
         }
     }
 
-    for (iLinha = 5; iLinha < 6; iLinha++)
+    for (iLinha = 5; iLinha < 8; iLinha++)
     {
         if (iLinha % 2 == 0)
         {
@@ -60,7 +62,7 @@ int main(void)
         {
             aux = 0;
         }
-        for (iColuna = 0; iColuna < 2; iColuna++, aux++) // iMPRIME AS BRANCAS
+        for (iColuna = 0; iColuna < 8; iColuna++, aux++) // iMPRIME AS BRANCAS
         {
             if (aux % 2 == 0)
             {
@@ -104,18 +106,116 @@ int main(void)
             scanf("%d %d", &iLinha, &iColuna);
             scanf("%d %d", &fLinha, &fColuna);
 
+            if ((abs(iLinha-fLinha) > 1) && (abs(iColuna-fColuna) > 1))
+            {
+
+                if ((((((((fColuna >= 0) && (fColuna < 8))) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 51))
+                {
+                    printf("\nLinha 114");
+                    if ((fLinha > iLinha) && (fColuna > iColuna)) //MOVIMENTO DIREITA INFERIOR
+                    {
+                        printf("\nLinha 117");
+                        int caminhoLivre = 1;
+                        int x, y;
+                        for (y = iLinha + 1, x = iColuna + 1; y < fLinha, x < fColuna; y++, x++)
+                        {
+                            if (tab[x][y] != 32)
+                            {
+                                printf("\nDiferente de espaco vazio\nx = %d, y = %d, tab[x][y] = %d", x, y, tab[x][y]);
+                                caminhoLivre = 0;
+                                break;
+                            }
+                        }
+                        if (caminhoLivre){
+                            printf("\nlivre\n");
+                            tab[iColuna][iLinha] = 32;
+                            tab[fColuna][fLinha] = 51;
+                            break;
+                        } else {
+                            printf("\nnao livre\n");
+                        }
+                    } else if ((fLinha > iLinha) && (fColuna < iColuna)) //MOVIMENTO DIREITA SUPERIOR
+                    {
+                        printf("\nLinha 139");
+                        int caminhoLivre = 1;
+                        int x, y;
+                        for (y = iLinha + 1, x = iColuna + 1; y < fLinha, x < fColuna; y++, x--)
+                        {
+                            if (tab[x][y] != 32)
+                            {
+                                printf("\nDiferente de espaco vazio\nx = %d, y = %d, tab[x][y] = %d", x, y, tab[x][y]);
+                                caminhoLivre = 0;
+                                break;
+                            }
+                        }
+                        if (caminhoLivre){
+                            printf("\nlivre\n");
+                            tab[iColuna][iLinha] = 32;
+                            tab[fColuna][fLinha] = 51;
+                            break;
+                        } else {
+                            printf("\nnao livre\n");
+                        }
+                    } else if ((fLinha < iLinha) && (fColuna > iColuna)) //MOVIMENTO ESQUERDA INFERIOR
+                    {
+                        printf("\nLinha 161");
+                        int caminhoLivre = 1;
+                        int x, y;
+                        for (y = iLinha + 1, x = iColuna + 1; y < fLinha, x < fColuna; y--, x++)
+                        {
+                            if (tab[x][y] != 32)
+                            {
+                                printf("\nDiferente de espaco vazio\nx = %d, y = %d, tab[x][y] = %d", x, y, tab[x][y]);
+                                caminhoLivre = 0;
+                                break;
+                            }
+                        }
+                        if (caminhoLivre){
+                            printf("\nlivre\n");
+                            tab[iColuna][iLinha] = 32;
+                            tab[fColuna][fLinha] = 51;
+                            break;
+                        } else {
+                            printf("\nnao livre\n");
+                        }
+                    } if ((fLinha < iLinha) && (fColuna < iColuna)) //MOVIMENTO ESQUERDA SUPERIOR
+                    {
+                        printf("\nLinha 183");
+                        int caminhoLivre = 1;
+                        int x, y;
+                        for (y = iLinha + 1, x = iColuna + 1; y < fLinha, x < fColuna; y--, x--)
+                        {
+                            if (tab[x][y] != 32)
+                            {
+                                printf("\nDiferente de espaco vazio\nx = %d, y = %d, tab[x][y] = %d", x, y, tab[x][y]);
+                                caminhoLivre = 0;
+                                break;
+                            }
+                        }
+                        if (caminhoLivre){
+                            printf("\nlivre\n");
+                            tab[iColuna][iLinha] = 32;
+                            tab[fColuna][fLinha] = 51;
+                            break;
+                        } else {
+                            printf("\nnao livre\n");
+                        }
+                    }
+                }
+            }
+
             // Captura dama
             //  Captura para direita e para baixo
             if (((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 51) && tab[fColuna][fLinha] == 32)
             {
-                printf("\n-115\n");
+                printf("\n-113\n");
                 if ((tab[iColuna + 1][iLinha + 1] == 50) || (tab[iColuna + 1][iLinha + 1] == 52))
                 {
                     tab[iColuna + 1][iLinha + 1] = 32;
                 }
                 else
                 {
-                    printf("\n-121\n");
+                    printf("\n-120\n");
                     printf("movimento invalido");
                     continue;
                 }
@@ -187,7 +287,14 @@ int main(void)
                 break;
             }
 
-            // Movimento dama
+            // MOVIMENTO DA DAMA
+            /*if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha + 1) || (fLinha == iLinha - 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 51))
+            {
+                printf("\n-190\n");
+                tab[iColuna][iLinha] = 32;
+                tab[fColuna][fLinha] = 51;
+                break;
+            }*/
 
             if (((((((fColuna == iColuna + 1) || (fColuna == iColuna - 1)) && ((fColuna >= 0) && (fColuna < 8))) && (((fLinha == iLinha + 1) || (fLinha == iLinha - 1)) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 51))
             {
@@ -197,8 +304,8 @@ int main(void)
                 break;
             }
 
-            // CAPTURA PEÇA NORMAL
 
+            // CAPTURA PEÇA NORMAL
             // Captura para direita E PARA BAIXO
             if (((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 49) && tab[fColuna][fLinha] == 32)
             {
@@ -250,7 +357,6 @@ int main(void)
                 if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8))) && (tab[fColuna + 2][fLinha - 2] == 32) && (fColuna + 2 >= 0) && (fColuna + 2 < 8))
                 {
                     system("CLS");
-                    // IMPRESSãO DO TABULEIRO:
                     printf("    0   1   2   3   4   5   6   7\n");
                     printf("  |---|---|---|---|---|---|---|---|\n");
                     for (iLinha = 0; iLinha < 8; iLinha++)
@@ -299,7 +405,7 @@ int main(void)
                         printf("  |---|---|---|---|---|---|---|---|\n");
                     }
                     printf("    0   1   2   3   4   5   6   7");
-                    printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
+                    printf("\nAinde existem peças a serem capturadas e a captura e obrigatoria!");
 
                     continue;
                 }
@@ -436,7 +542,7 @@ int main(void)
                         printf("  |---|---|---|---|---|---|---|---|\n");
                     }
                     printf("    0   1   2   3   4   5   6   7");
-                    printf("\nAinde existem peças a serem capturradas e a captura e obrigatoria!");
+                    printf("\nAinde existem peças a serem capturadas e a captura e obrigatoria!");
 
                     continue;
                 }
@@ -819,6 +925,105 @@ int main(void)
                 scanf("%d %d", &iLinha, &iColuna);
                 scanf("%d %d", &fLinha, &fColuna);
 
+                //MOVIMENTO DA DAMA
+                if ((abs(iLinha-fLinha) > 1) && (abs(iColuna-fColuna) > 1))
+                {
+
+                    if ((((((((fColuna >= 0) && (fColuna < 8))) && ((fLinha >= 0) && (fLinha < 8)))) && tab[fColuna][fLinha] == 32) && tab[iColuna][iLinha] == 52))
+                    {
+                        printf("\nLinha 934");
+                        if ((fLinha > iLinha) && (fColuna > iColuna)) //MOVIMENTO DIREITA INFERIOR
+                        {
+                            printf("\nLinha 937");
+                            int caminhoLivre = 1;
+                            int x, y;
+                            for (y = iLinha + 1, x = iColuna + 1; y < fLinha, x < fColuna; y++, x++)
+                            {
+                                if (tab[x][y] != 32)
+                                {
+                                    printf("\nDiferente de espaco vazio\nx = %d, y = %d, tab[x][y] = %d", x, y, tab[x][y]);
+                                    caminhoLivre = 0;
+                                    break;
+                                }
+                            }
+                            if (caminhoLivre){
+                                printf("\nlivre\n");
+                                tab[iColuna][iLinha] = 32;
+                                tab[fColuna][fLinha] = 52;
+                                break;
+                            } else {
+                                printf("\nnao livre\n");
+                            }
+                        } else if ((fLinha > iLinha) && (fColuna < iColuna)) //MOVIMENTO DIREITA SUPERIOR
+                        {
+                            printf("\nLinha 959");
+                            int caminhoLivre = 1;
+                            int x, y;
+                            for (y = iLinha + 1, x = iColuna + 1; y < fLinha, x < fColuna; y++, x--)
+                            {
+                                if (tab[x][y] != 32)
+                                {
+                                    printf("\nDiferente de espaco vazio\nx = %d, y = %d, tab[x][y] = %d", x, y, tab[x][y]);
+                                    caminhoLivre = 0;
+                                    break;
+                                }
+                            }
+                            if (caminhoLivre){
+                                printf("\nlivre\n");
+                                tab[iColuna][iLinha] = 32;
+                                tab[fColuna][fLinha] = 52;
+                                break;
+                            } else {
+                                printf("\nnao livre\n");
+                            }
+                        } else if ((fLinha < iLinha) && (fColuna > iColuna)) //MOVIMENTO ESQUERDA INFERIOR
+                        {
+                            printf("\nLinha 981");
+                            int caminhoLivre = 1;
+                            int x, y;
+                            for (y = iLinha + 1, x = iColuna + 1; y < fLinha, x < fColuna; y--, x++)
+                            {
+                                if (tab[x][y] != 32)
+                                {
+                                    printf("\nDiferente de espaco vazio\nx = %d, y = %d, tab[x][y] = %d", x, y, tab[x][y]);
+                                    caminhoLivre = 0;
+                                    break;
+                                }
+                            }
+                            if (caminhoLivre){
+                                printf("\nlivre\n");
+                                tab[iColuna][iLinha] = 32;
+                                tab[fColuna][fLinha] = 52;
+                                break;
+                            } else {
+                                printf("\nnao livre\n");
+                            }
+                        } if ((fLinha < iLinha) && (fColuna < iColuna)) //MOVIMENTO ESQUERDA SUPERIOR
+                        {
+                            printf("\nLinha 1003");
+                            int caminhoLivre = 1;
+                            int x, y;
+                            for (y = iLinha + 1, x = iColuna + 1; y < fLinha, x < fColuna; y--, x--)
+                            {
+                                if (tab[x][y] != 32)
+                                {
+                                    printf("\nDiferente de espaco vazio\nx = %d, y = %d, tab[x][y] = %d", x, y, tab[x][y]);
+                                    caminhoLivre = 0;
+                                    break;
+                                }
+                            }
+                            if (caminhoLivre){
+                                printf("\nlivre\n");
+                                tab[iColuna][iLinha] = 32;
+                                tab[fColuna][fLinha] = 52;
+                                break;
+                            } else {
+                                printf("\nnao livre\n");
+                            }
+                        }
+                    }
+                }
+
                 // MOVIMENTO DE CAPTURA DA DAMA
 
                 // Captura para direita e para baixo
@@ -830,6 +1035,7 @@ int main(void)
                     }
                     else
                     {
+                        printf("\nLinha 867");
                         printf("movimento invalido");
                         continue;
                     }
@@ -839,7 +1045,7 @@ int main(void)
 
                     break;
                 }
-                // Captura para esqueda e para baixo
+                // Captura para esquerda e para baixo
                 if (((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 52) && tab[fColuna][fLinha] == 32)
                 {
 
@@ -849,6 +1055,7 @@ int main(void)
                     }
                     else
                     {
+                        printf("\nLinha 887");
                         printf("movimento invalido");
                         continue;
                     }
@@ -867,6 +1074,7 @@ int main(void)
                     }
                     else
                     {
+                        printf("\nLinha 906");
                         printf("movimento invalido");
                         continue;
                     }
@@ -885,6 +1093,7 @@ int main(void)
                     }
                     else
                     {
+                        printf("\nLinha 925");
                         printf("movimento invalido");
                         continue;
                     }
@@ -916,6 +1125,7 @@ int main(void)
                         }
                         else
                         {
+                            printf("\nLinha 957");
                             printf("movimento invalido");
                             continue;
                         }
@@ -1051,6 +1261,7 @@ int main(void)
                     }
                     else
                     {
+                        printf("\nLinha 1093");
                         printf("movimento invalido");
                         continue;
                     }
@@ -1186,6 +1397,7 @@ int main(void)
                     }
                     else
                     {
+                        printf("\nLinha 1229");
                         printf("movimento invalido");
                         continue;
                     }
@@ -1322,6 +1534,7 @@ int main(void)
                     }
                     else
                     {
+                        printf("\nLinha 1366");
                         printf("movimento invalido");
                         continue;
                     }
@@ -1458,6 +1671,7 @@ int main(void)
                 }
                 else
                 {
+                    printf("\nLinha 1503");
                     printf("movimento invalido");
                     continue;
                 }
