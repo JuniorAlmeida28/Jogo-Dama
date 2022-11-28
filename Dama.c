@@ -307,11 +307,7 @@ int main(void)
             }
 
             //MOVIMENTO DAMA
-            /*if ((((tab[iColuna][iLinha] == 51) && (((fLinha + fColuna) == (iLinha + iColuna)) || ((fLinha - fColuna) == (iLinha + iColuna)) ||
-                                                   ((fLinha + fColuna) == (iLinha - iColuna)) || (abs(fLinha - fColuna) == (abs(iLinha - iColuna))) ||
-                                                   (abs(fLinha + fColuna) == (abs(iLinha - iColuna))) || (abs(fLinha - fColuna) == (abs(iLinha + iColuna))) ||
-                                                   (abs(fLinha + fColuna) == (abs(iLinha + iColuna))))) && (tab[fColuna][fLinha] == 32)))
-            {*/
+            
             if ((tab[iColuna][iLinha] == 51) && ((abs(iLinha-fLinha) > 1)) && (abs(iColuna-fColuna) > 1))
             {
                 if ((iLinha < fLinha) && (iColuna > fColuna)) // MOVIMENTO DIREITA INFERIOR
@@ -346,7 +342,7 @@ int main(void)
                     printf("\nLinha 343");
                     int caminhoLivre = 1;
                     int x, y;
-                    for (y = iLinha + 1, x = iColuna - 1; y < fLinha, x > fColuna; y++, x--)
+                    for (y = iLinha - 1, x = iColuna + 1; y < fLinha, x > fColuna; y--, x++)
                     {
                         if (tab[x][y] != 32)
                         {
@@ -425,8 +421,8 @@ int main(void)
             // CAPTURA PEÇA NORMAL
 
             // Captura para direita E PARA BAIXO
-            if (((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && tab[iColuna][iLinha] == 49)
-                 && tab[fColuna][fLinha] == 32)
+
+            if ((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && (tab[iColuna][iLinha] == 49 && tab[fColuna][fLinha] == 32))
             {
 
                 if ((tab[iColuna + 1][iLinha + 1] == 50) || (tab[iColuna + 1][iLinha + 1] == 52))
@@ -445,10 +441,9 @@ int main(void)
 
                 // VERIFICA SE AINDA EXISTE PEÇAS A SEREM CAPTURADAS
                 // VERIFICA PARA BAIXO E PARA DIREITA
-                if (((((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8))) &&
-                      (tab[fColuna + 2][fLinha + 2] == 32)) && (fColuna + 2 >= 0) && (fColuna + 2 < 8)))
-                {
-                    system("CLS");
+                if (((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha + 2] == 32)) 
+                {printf("\n450\n");
+                    //system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     printf("    0   1   2   3   4   5   6   7\n");
                     printf("  |---|---|---|---|---|---|---|---|\n");
@@ -477,10 +472,9 @@ int main(void)
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
-                if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8))) &&
-                    (tab[fColuna + 2][fLinha - 2] == 32) && (fColuna + 2 >= 0) && (fColuna + 2 < 8))
-                {
-                    system("CLS");
+                if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha - 2] == 32))
+                {printf("\n482\n");
+                    //system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     printf("    0   1   2   3   4   5   6   7\n");
                     printf("  |---|---|---|---|---|---|---|---|\n");
@@ -509,10 +503,9 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA BAIXO
-                if (((tab[fColuna - 1][fLinha + 1] == 50) || (tab[fColuna - 1][fLinha + 1] == 52) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8))) &&
-                    (tab[fColuna - 2][fLinha + 2] == 32) && (fColuna - 2 >= 0) && (fColuna - 2 < 8))
-                {
-                    system("CLS");
+                if (((tab[fColuna - 1][fLinha + 1] == 50) || (tab[fColuna - 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha + 2] == 32))
+                {printf("\n514\n");
+                    //system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     printf("    0   1   2   3   4   5   6   7\n");
                     printf("  |---|---|---|---|---|---|---|---|\n");
@@ -541,10 +534,9 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA CIMA
-                if (((tab[fColuna - 1][fLinha - 1] == 50) || (tab[fColuna - 1][fLinha - 1] == 52) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8))) &&
-                    (tab[fColuna - 2][fLinha - 2] == 32) && (fColuna - 2 >= 0) && (fColuna - 2 < 8))
-                {
-                    system("CLS");
+                if (((tab[fColuna - 1][fLinha - 1] == 50) || (tab[fColuna - 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8))  && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha - 2] == 32))
+                {printf("\n546\n");
+                    //system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     printf("    0   1   2   3   4   5   6   7\n");
                     printf("  |---|---|---|---|---|---|---|---|\n");
@@ -576,8 +568,7 @@ int main(void)
             }
 
             // Captura para direita E PARA CIMA
-            if (((((fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) &&
-                 tab[iColuna][iLinha] == 49) && tab[fColuna][fLinha] == 32)
+            if (((  (fColuna == iColuna + 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) && (tab[iColuna][iLinha] == 49 && tab[fColuna][fLinha] == 32))
             {
 
                 if ((tab[iColuna + 1][iLinha - 1] == 50) || (tab[iColuna + 1][iLinha - 1] == 52))
@@ -596,8 +587,9 @@ int main(void)
 
                 // VERIFICA SE AINDA EXISTE PEÇAS A SEREM CAPTURADAS
                 // VERIFICA PARA BAIXO E PARA DIREITA
-                if (((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8))) &&
-                    (tab[fColuna + 2][fLinha + 2] == 32) && (fColuna + 2 >= 0) && (fColuna + 2 < 8))
+                
+
+                if (((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha + 2] == 32))
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -627,8 +619,9 @@ int main(void)
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
-                if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8))) &&
-                    (tab[fColuna + 2][fLinha - 2] == 32) && (fColuna + 2 >= 0) && (fColuna + 2 < 8))
+                
+
+                if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha - 2] == 32))
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -659,8 +652,9 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA BAIXO
-                if (((tab[fColuna - 1][fLinha + 1] == 50) || (tab[fColuna - 1][fLinha + 1] == 52) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8))) &&
-                    (tab[fColuna - 2][fLinha + 2] == 32) && (fColuna - 2 >= 0) && (fColuna - 2 < 8))
+                
+
+                if (((tab[fColuna - 1][fLinha + 1] == 50) || (tab[fColuna - 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha + 2] == 32))
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -691,8 +685,9 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA CIMA
-                if (((tab[fColuna - 1][fLinha - 1] == 50) || (tab[fColuna - 1][fLinha - 1] == 52) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8))) &&
-                    (tab[fColuna - 2][fLinha - 2] == 32) && (fColuna - 2 >= 0) && (fColuna - 2 < 8))
+                
+
+                if (((tab[fColuna - 1][fLinha - 1] == 50) || (tab[fColuna - 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha - 2] == 32))
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -726,8 +721,9 @@ int main(void)
             }
 
             // Captura para esqueda E PARA BAIXO
-            if (((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) &&
-                 tab[iColuna][iLinha] == 49) && tab[fColuna][fLinha] == 32)
+           
+
+            if ((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && (tab[iColuna][iLinha] == 49 && tab[fColuna][fLinha] == 32))
             {
 
                 if ((tab[iColuna - 1][iLinha + 1] == 50) || (tab[iColuna - 1][iLinha + 1] == 52))
@@ -746,8 +742,9 @@ int main(void)
 
                 // VERIFICA SE AINDA EXISTE PEÇAS A SEREM CAPTURADAS
                 // VERIFICA PARA BAIXO E PARA DIREITA
-                if (((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8))) &&
-                    (tab[fColuna + 2][fLinha + 2] == 32) && (fColuna + 2 >= 0) && (fColuna + 2 < 8))
+                
+
+                if (((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha + 2] == 32))
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -778,8 +775,9 @@ int main(void)
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
-                if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8))) &&
-                    (tab[fColuna + 2][fLinha - 2] == 32) && (fColuna + 2 >= 0) && (fColuna + 2 < 8))
+                
+
+                if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha - 2] == 32))
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -810,8 +808,9 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA BAIXO
-                if (((tab[fColuna - 1][fLinha + 1] == 50) || (tab[fColuna - 1][fLinha + 1] == 52) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8))) &&
-                    (tab[fColuna - 2][fLinha + 2] == 32) && (fColuna - 2 >= 0) && (fColuna - 2 < 8))
+                
+
+                if (((tab[fColuna - 1][fLinha + 1] == 50) || (tab[fColuna - 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha + 2] == 32))
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -842,8 +841,9 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA CIMA
-                if (((tab[fColuna - 1][fLinha - 1] == 50) || (tab[fColuna - 1][fLinha - 1] == 52) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8))) &&
-                    (tab[fColuna - 2][fLinha - 2] == 32) && (fColuna - 2 >= 0) && (fColuna - 2 < 8))
+                
+
+                if (((tab[fColuna - 1][fLinha - 1] == 50) || (tab[fColuna - 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha - 2] == 32))
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -877,8 +877,9 @@ int main(void)
             }
 
             // Captura para esqueda E PARA CIMA
-            if (((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) &&
-                 tab[iColuna][iLinha] == 49) && tab[fColuna][fLinha] == 32)
+            
+
+            if ((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) && (tab[iColuna][iLinha] == 49 && tab[fColuna][fLinha] == 32))
             {
 
                 if ((tab[iColuna - 1][iLinha - 1] == 50) || (tab[iColuna - 1][iLinha - 1] == 52))
@@ -897,8 +898,9 @@ int main(void)
 
                 // VERIFICA SE AINDA EXISTE PEÇAS A SEREM CAPTURADAS
                 // VERIFICA PARA BAIXO E PARA DIREITA
-                if (((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8))) &&
-                    (tab[fColuna + 2][fLinha + 2] == 32) && (fColuna + 2 >= 0) && (fColuna + 2 < 8))
+                
+
+                if (((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha + 2] == 32))
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -928,8 +930,9 @@ int main(void)
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
-                if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8))) &&
-                    (tab[fColuna + 2][fLinha - 2] == 32) && (fColuna + 2 >= 0) && (fColuna + 2 < 8))
+                
+
+                if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha - 2] == 32))
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -960,8 +963,8 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA BAIXO
-                if (((tab[fColuna - 1][fLinha + 1] == 50) || (tab[fColuna - 1][fLinha + 1] == 52) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8))) &&
-                    (tab[fColuna - 2][fLinha + 2] == 32) && (fColuna - 2 >= 0) && (fColuna - 2 < 8))
+
+                if (((tab[fColuna - 1][fLinha + 1] == 50) || (tab[fColuna - 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha + 2] == 32))
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -992,8 +995,9 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA CIMA
-                if (((tab[fColuna - 1][fLinha - 1] == 50) || (tab[fColuna - 1][fLinha - 1] == 52) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8))) &&
-                    (tab[fColuna - 2][fLinha - 2] == 32) && (fColuna - 2 >= 0) && (fColuna - 2 < 8))
+                
+
+                if (((tab[fColuna - 1][fLinha - 1] == 50) || (tab[fColuna - 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha - 2] == 32))
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -1056,7 +1060,7 @@ int main(void)
         system("CLS");
 
         // VERIFICA SE VIROU DAMA:
-        for (iColuna = 0; iColuna < 8; iColuna++)
+        for (iColuna = 0; iColuna < 9; iColuna++)
         {
             if (tab[iColuna][7] == 49)
             {
