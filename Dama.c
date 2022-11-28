@@ -126,7 +126,7 @@ int main(void)
                                                    (abs(fLinha + fColuna) == (abs(iLinha + iColuna))))) && (tab[fColuna][fLinha] == 32)))
             {
                 printf("\nLinha 128");
-                if ((iLinha < fLinha) && (iColuna > fColuna)) // CAPTURA DAMA MOVIMENTO DIREITA INFERIOR
+                if ((iLinha > fLinha) && (iColuna > fColuna)) // CAPTURA DAMA MOVIMENTO DIREITA INFERIOR
                 {
                     printf("\nLinha 131\n");
 
@@ -175,7 +175,7 @@ int main(void)
                     printf("\nLinha 175\n");
 
                     int x, y;
-                    for (y = iLinha + 1, x = iColuna - 1; y < fLinha, x > fColuna; y++, x--)
+                    for (y = iLinha - 1, x = iColuna + 1; y > fLinha, x < fColuna; y--, x++)
                     {
                         printf("\nLinha 180\n");
                         if (tab[x][y] != 32)
@@ -214,12 +214,12 @@ int main(void)
                             break;
                         }
                     }
-                } else if ((iLinha > fLinha) && (iColuna < fColuna)) // CAPTURA DAMA MOVIMENTO ESQUERDA INFERIOR
+                } else if ((iLinha < fLinha) && (iColuna > fColuna)) // CAPTURA DAMA MOVIMENTO ESQUERDA INFERIOR
                 {
                     printf("\nLinha 219\n");
 
                     int x, y;
-                    for (y = iLinha - 1, x = iColuna + 1; y > fLinha, x < fColuna; y--, x++)
+                    for (y = iLinha + 1, x = iColuna - 1; y < fLinha, x > fColuna; y++, x--)
                     {
                         printf("\nLinha 224\n");
                         if (tab[x][y] != 32)
@@ -307,10 +307,10 @@ int main(void)
             }
 
             //MOVIMENTO DAMA
-            
-            if ((tab[iColuna][iLinha] == 51) && ((abs(iLinha-fLinha) > 1)) && (abs(iColuna-fColuna) > 1))
+
+            if ((tab[iColuna][iLinha] == 51) && ((abs(iLinha-fLinha) > 1) && (abs(iColuna-fColuna) > 1)))
             {
-                if ((iLinha < fLinha) && (iColuna > fColuna)) // MOVIMENTO DIREITA INFERIOR
+                if ((iLinha > fLinha) && (iColuna > fColuna)) // MOVIMENTO DIREITA INFERIOR
                 {
                     printf("\nLinha 316");
                     int caminhoLivre = 1;
@@ -329,6 +329,26 @@ int main(void)
                         printf("\nlivre\n");
                         tab[iColuna][iLinha] = 32;
                         tab[fColuna][fLinha] = 51;
+                        // IMPRESSãO DO TABULEIRO:
+                        printf("    0   1   2   3   4   5   6   7\n");
+                        printf("  |---|---|---|---|---|---|---|---|\n");
+                        for (iLinha = 0; iLinha < 8; iLinha++)
+                        {
+                            printf("%d ", iLinha);
+                            for (iColuna = 0; iColuna < 8; iColuna++)
+                            {
+
+                                printf("| %c ", tab[iColuna][iLinha]);
+
+                                if (iColuna == 7)
+                                {
+                                    printf("|%d \n", iLinha);
+                                }
+                            }
+
+                            printf("  |---|---|---|---|---|---|---|---|\n");
+                        }
+                        printf("    0   1   2   3   4   5   6   7");
                         break;
                     }
                     else
@@ -356,6 +376,26 @@ int main(void)
                         printf("\nlivre\n");
                         tab[iColuna][iLinha] = 32;
                         tab[fColuna][fLinha] = 51;
+                        // IMPRESSãO DO TABULEIRO:
+                        printf("    0   1   2   3   4   5   6   7\n");
+                        printf("  |---|---|---|---|---|---|---|---|\n");
+                        for (iLinha = 0; iLinha < 8; iLinha++)
+                        {
+                            printf("%d ", iLinha);
+                            for (iColuna = 0; iColuna < 8; iColuna++)
+                            {
+
+                                printf("| %c ", tab[iColuna][iLinha]);
+
+                                if (iColuna == 7)
+                                {
+                                    printf("|%d \n", iLinha);
+                                }
+                            }
+
+                            printf("  |---|---|---|---|---|---|---|---|\n");
+                        }
+                        printf("    0   1   2   3   4   5   6   7");
                         break;
                     }
                     else
@@ -363,7 +403,7 @@ int main(void)
                         printf("\nExiste uma peça no meio do caminho:\nLinha %d\nColuna %d\n", y, x);
                     }
                 }
-                else if ((fLinha > iLinha) && (fColuna < iColuna)) // MOVIMENTO ESQUERDA INFERIOR
+                else if ((iLinha < fLinha) && (iColuna > fColuna)) // MOVIMENTO ESQUERDA INFERIOR
                 {
                     printf("\nLinha 369");
                     int caminhoLivre = 1;
@@ -383,6 +423,27 @@ int main(void)
                         printf("\nlivre\n");
                         tab[iColuna][iLinha] = 32;
                         tab[fColuna][fLinha] = 51;
+
+                        // IMPRESSãO DO TABULEIRO:
+                        printf("    0   1   2   3   4   5   6   7\n");
+                        printf("  |---|---|---|---|---|---|---|---|\n");
+                        for (iLinha = 0; iLinha < 8; iLinha++)
+                        {
+                            printf("%d ", iLinha);
+                            for (iColuna = 0; iColuna < 8; iColuna++)
+                            {
+
+                                printf("| %c ", tab[iColuna][iLinha]);
+
+                                if (iColuna == 7)
+                                {
+                                    printf("|%d \n", iLinha);
+                                }
+                            }
+
+                            printf("  |---|---|---|---|---|---|---|---|\n");
+                        }
+                        printf("    0   1   2   3   4   5   6   7");
                         break;
                     }
                     else
@@ -390,7 +451,7 @@ int main(void)
                         printf("\nnao livre\n");
                     }
                 }
-                if ((fLinha < iLinha) && (fColuna < iColuna)) // MOVIMENTO ESQUERDA SUPERIOR
+                if ((iLinha > fLinha) && (iColuna > fColuna)) // MOVIMENTO ESQUERDA SUPERIOR
                 {
                     printf("\nLinha 396");
                     int caminhoLivre = 1;
@@ -409,6 +470,27 @@ int main(void)
                         printf("\nlivre\n");
                         tab[iColuna][iLinha] = 32;
                         tab[fColuna][fLinha] = 51;
+
+                        // IMPRESSãO DO TABULEIRO:
+                        printf("    0   1   2   3   4   5   6   7\n");
+                        printf("  |---|---|---|---|---|---|---|---|\n");
+                        for (iLinha = 0; iLinha < 8; iLinha++)
+                        {
+                            printf("%d ", iLinha);
+                            for (iColuna = 0; iColuna < 8; iColuna++)
+                            {
+
+                                printf("| %c ", tab[iColuna][iLinha]);
+
+                                if (iColuna == 7)
+                                {
+                                    printf("|%d \n", iLinha);
+                                }
+                            }
+
+                            printf("  |---|---|---|---|---|---|---|---|\n");
+                        }
+                        printf("    0   1   2   3   4   5   6   7");
                         break;
                     }
                     else
@@ -416,6 +498,7 @@ int main(void)
                         printf("\nnao livre\n");
                     }
                 }
+                break;
             }
 
             // CAPTURA PEÇA NORMAL
@@ -441,7 +524,7 @@ int main(void)
 
                 // VERIFICA SE AINDA EXISTE PEÇAS A SEREM CAPTURADAS
                 // VERIFICA PARA BAIXO E PARA DIREITA
-                if (((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha + 2] == 32)) 
+                if (((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha + 2] == 32))
                 {printf("\n450\n");
                     //system("CLS");
                     // IMPRESSãO DO TABULEIRO:
@@ -587,7 +670,7 @@ int main(void)
 
                 // VERIFICA SE AINDA EXISTE PEÇAS A SEREM CAPTURADAS
                 // VERIFICA PARA BAIXO E PARA DIREITA
-                
+
 
                 if (((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha + 2] == 32))
                 {
@@ -619,7 +702,7 @@ int main(void)
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
-                
+
 
                 if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha - 2] == 32))
                 {
@@ -652,7 +735,7 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA BAIXO
-                
+
 
                 if (((tab[fColuna - 1][fLinha + 1] == 50) || (tab[fColuna - 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha + 2] == 32))
                 {
@@ -685,7 +768,7 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA CIMA
-                
+
 
                 if (((tab[fColuna - 1][fLinha - 1] == 50) || (tab[fColuna - 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha - 2] == 32))
                 {
@@ -721,7 +804,7 @@ int main(void)
             }
 
             // Captura para esqueda E PARA BAIXO
-           
+
 
             if ((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha + 2) && ((fLinha >= 0) && (fLinha < 8)))) && (tab[iColuna][iLinha] == 49 && tab[fColuna][fLinha] == 32))
             {
@@ -742,7 +825,7 @@ int main(void)
 
                 // VERIFICA SE AINDA EXISTE PEÇAS A SEREM CAPTURADAS
                 // VERIFICA PARA BAIXO E PARA DIREITA
-                
+
 
                 if (((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha + 2] == 32))
                 {
@@ -775,7 +858,7 @@ int main(void)
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
-                
+
 
                 if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha - 2] == 32))
                 {
@@ -808,7 +891,7 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA BAIXO
-                
+
 
                 if (((tab[fColuna - 1][fLinha + 1] == 50) || (tab[fColuna - 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha + 2] == 32))
                 {
@@ -841,7 +924,7 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA CIMA
-                
+
 
                 if (((tab[fColuna - 1][fLinha - 1] == 50) || (tab[fColuna - 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha - 2] == 32))
                 {
@@ -877,7 +960,7 @@ int main(void)
             }
 
             // Captura para esqueda E PARA CIMA
-            
+
 
             if ((((fColuna == iColuna - 2) && ((fColuna >= 0) && (fColuna < 8))) && ((fLinha == iLinha - 2) && ((fLinha >= 0) && (fLinha < 8)))) && (tab[iColuna][iLinha] == 49 && tab[fColuna][fLinha] == 32))
             {
@@ -898,7 +981,7 @@ int main(void)
 
                 // VERIFICA SE AINDA EXISTE PEÇAS A SEREM CAPTURADAS
                 // VERIFICA PARA BAIXO E PARA DIREITA
-                
+
 
                 if (((tab[fColuna + 1][fLinha + 1] == 50) || (tab[fColuna + 1][fLinha + 1] == 52)) && ((fLinha + 2 >= 0) && (fLinha + 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha + 2] == 32))
                 {
@@ -930,7 +1013,7 @@ int main(void)
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
-                
+
 
                 if (((tab[fColuna + 1][fLinha - 1] == 50) || (tab[fColuna + 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna + 2 >= 0) && (fColuna + 2 < 8)) && (tab[fColuna + 2][fLinha - 2] == 32))
                 {
@@ -995,7 +1078,7 @@ int main(void)
                 }
 
                 // VERIFICA PARA ESQUERDA E PARA CIMA
-                
+
 
                 if (((tab[fColuna - 1][fLinha - 1] == 50) || (tab[fColuna - 1][fLinha - 1] == 52)) && ((fLinha - 2 >= 0) && (fLinha - 2 < 8)) && ((fColuna - 2 >= 0) && (fColuna - 2 < 8)) && (tab[fColuna - 2][fLinha - 2] == 32))
                 {
