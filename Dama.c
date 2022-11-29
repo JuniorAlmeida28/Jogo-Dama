@@ -148,7 +148,7 @@ int main(void)
                 {
                     int caminhoLivre = 1;
                     int x, y;
-                    for (y = iLinha + 1, x = iColuna + 1; y < fLinha, x < fColuna; y++, x++)
+                    for (y = iLinha + 1, x = iColuna + 1; y <= fLinha, x <= fColuna; y++, x++)
                     {
                         if (tab[x][y] != 32)
                         {
@@ -248,7 +248,7 @@ int main(void)
                 {
                     int caminhoLivre = 1;
                     int x, y;
-                    for (y = iLinha - 1, x = iColuna + 1; y < fLinha, x < fColuna; y--, x++)
+                    for (y = iLinha - 1, x = iColuna + 1; y <= fLinha, x <= fColuna; y--, x++)
                     {
                         if (tab[x][y] != 32)
                         {
@@ -347,7 +347,7 @@ int main(void)
                 {
                     int caminhoLivre = 1;
                     int x, y;
-                    for (y = iLinha + 1, x = iColuna - 1; y<fLinha, x> fColuna; y++, x--)
+                    for (y = iLinha + 1, x = iColuna - 1; y<=fLinha, x>= fColuna; y++, x--)
                     {
                         if (tab[x][y] != 32)
                         {
@@ -446,7 +446,7 @@ int main(void)
                 {
                     int caminhoLivre = 1;
                     int x, y;
-                    for (y = iLinha - 1, x = iColuna - 1; y > fLinha, x > fColuna; y--, x--)
+                    for (y = iLinha - 1, x = iColuna - 1; y >= fLinha, x >= fColuna; y--, x--)
                     {
                         if (tab[x][y] != 32)
                         {
@@ -972,7 +972,7 @@ int main(void)
                     {
                         int caminhoLivre = 1;
                         int x, y;
-                        for (y = iLinha + 1, x = iColuna + 1; y < fLinha, x < fColuna; y++, x++)
+                        for (y = iLinha + 1, x = iColuna + 1; y <= fLinha, x <= fColuna; y++, x++)
                         {
                             if (tab[x][y] != 32)
                             {
@@ -1072,7 +1072,7 @@ int main(void)
                     {
                         int caminhoLivre = 1;
                         int x, y;
-                        for (y = iLinha - 1, x = iColuna + 1; y < fLinha, x < fColuna; y--, x++)
+                        for (y = iLinha - 1, x = iColuna + 1; y <= fLinha, x <= fColuna; y--, x++)
                         {
                             if (tab[x][y] != 32)
                             {
@@ -1171,7 +1171,7 @@ int main(void)
                     {
                         int caminhoLivre = 1;
                         int x, y;
-                        for (y = iLinha + 1, x = iColuna - 1; y<fLinha, x> fColuna; y++, x--)
+                        for (y = iLinha + 1, x = iColuna - 1; y<=fLinha, x>= fColuna; y++, x--)
                         {
                             if (tab[x][y] != 32)
                             {
@@ -1270,7 +1270,7 @@ int main(void)
                     {
                         int caminhoLivre = 1;
                         int x, y;
-                        for (y = iLinha - 1, x = iColuna - 1; y > fLinha, x > fColuna; y--, x--)
+                        for (y = iLinha - 1, x = iColuna - 1; y >= fLinha, x >= fColuna; y--, x--)
                         {
                             if (tab[x][y] != 32)
                             {
