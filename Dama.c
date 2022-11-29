@@ -4,6 +4,33 @@
 #include <math.h>
 #include <locale.h>
 
+    
+
+void imprimeTab(char tab[8][8])
+{
+    // IMPRESSãO DO TABULEIRO:
+    printf("    0   1   2   3   4   5   6   7\n");
+    printf("  |---|---|---|---|---|---|---|---|\n");
+    for (int i = 0; i < 8; i++)
+    {
+        printf("%d ", i);
+        for (int j = 0; j < 8; j++)
+        {
+
+            printf("| %c ", tab[j][i]);
+
+            if (j == 7)
+            {
+                printf("|%d \n", i);
+            }
+        }
+
+        printf("  |---|---|---|---|---|---|---|---|\n");
+    }
+    printf("    0   1   2   3   4   5   6   7");
+    
+}
+
 int main(void)
 {
     setlocale(LC_ALL, "Portuguese");
@@ -77,26 +104,10 @@ int main(void)
             }
         }
     }
+
     // IMPRESSãO DO TABULEIRO:
-    printf("    0   1   2   3   4   5   6   7\n");
-    printf("  |---|---|---|---|---|---|---|---|\n");
-    for (iLinha = 0; iLinha < 8; iLinha++)
-    {
-        printf("%d ", iLinha);
-        for (iColuna = 0; iColuna < 8; iColuna++)
-        {
-
-            printf("| %c ", tab[iColuna][iLinha]);
-
-            if (iColuna == 7)
-            {
-                printf("|%d \n", iLinha);
-            }
-        }
-
-        printf("  |---|---|---|---|---|---|---|---|\n");
-    }
-    printf("    0   1   2   3   4   5   6   7");
+    imprimeTab(tab);
+   
 
     while (pretas != 0 && brancas != 0)
     {
@@ -951,26 +962,7 @@ int main(void)
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
-                    printf("    0   1   2   3   4   5   6   7\n");
-                    printf("  |---|---|---|---|---|---|---|---|\n");
-                    for (iLinha = 0; iLinha < 8; iLinha++)
-                    {
-                        printf("%d ", iLinha);
-                        for (iColuna = 0; iColuna < 8; iColuna++)
-                        {
-
-                            printf("| %c ", tab[iColuna][iLinha]);
-
-                            if (iColuna == 7)
-                            {
-                                printf("|%d \n", iLinha);
-                            }
-                        }
-
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                    }
-                    printf("    0   1   2   3   4   5   6   7");
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    imprimeTab(tab);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
@@ -982,25 +974,7 @@ int main(void)
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
-                    printf("    0   1   2   3   4   5   6   7\n");
-                    printf("  |---|---|---|---|---|---|---|---|\n");
-                    for (iLinha = 0; iLinha < 8; iLinha++)
-                    {
-                        printf("%d ", iLinha);
-                        for (iColuna = 0; iColuna < 8; iColuna++)
-                        {
-
-                            printf("| %c ", tab[iColuna][iLinha]);
-
-                            if (iColuna == 7)
-                            {
-                                printf("|%d \n", iLinha);
-                            }
-                        }
-
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                    }
-                    printf("    0   1   2   3   4   5   6   7");
+                    imprimeTab(tab);
                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                     pLinha = fLinha;
@@ -1014,25 +988,7 @@ int main(void)
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
-                    printf("    0   1   2   3   4   5   6   7\n");
-                    printf("  |---|---|---|---|---|---|---|---|\n");
-                    for (iLinha = 0; iLinha < 8; iLinha++)
-                    {
-                        printf("%d ", iLinha);
-                        for (iColuna = 0; iColuna < 8; iColuna++)
-                        {
-
-                            printf("| %c ", tab[iColuna][iLinha]);
-
-                            if (iColuna == 7)
-                            {
-                                printf("|%d \n", iLinha);
-                            }
-                        }
-
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                    }
-                    printf("    0   1   2   3   4   5   6   7");
+                    imprimeTab(tab);
                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                     pLinha = fLinha;
@@ -1046,25 +1002,7 @@ int main(void)
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
-                    printf("    0   1   2   3   4   5   6   7\n");
-                    printf("  |---|---|---|---|---|---|---|---|\n");
-                    for (iLinha = 0; iLinha < 8; iLinha++)
-                    {
-                        printf("%d ", iLinha);
-                        for (iColuna = 0; iColuna < 8; iColuna++)
-                        {
-
-                            printf("| %c ", tab[iColuna][iLinha]);
-
-                            if (iColuna == 7)
-                            {
-                                printf("|%d \n", iLinha);
-                            }
-                        }
-
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                    }
-                    printf("    0   1   2   3   4   5   6   7");
+                    imprimeTab(tab);
                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                     pLinha = fLinha;
@@ -1100,25 +1038,7 @@ int main(void)
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
-                    printf("    0   1   2   3   4   5   6   7\n");
-                    printf("  |---|---|---|---|---|---|---|---|\n");
-                    for (iLinha = 0; iLinha < 8; iLinha++)
-                    {
-                        printf("%d ", iLinha);
-                        for (iColuna = 0; iColuna < 8; iColuna++)
-                        {
-
-                            printf("| %c ", tab[iColuna][iLinha]);
-
-                            if (iColuna == 7)
-                            {
-                                printf("|%d \n", iLinha);
-                            }
-                        }
-
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                    }
-                    printf("    0   1   2   3   4   5   6   7");
+                    imprimeTab(tab);
                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                     pLinha = fLinha;
@@ -1132,25 +1052,7 @@ int main(void)
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
-                    printf("    0   1   2   3   4   5   6   7\n");
-                    printf("  |---|---|---|---|---|---|---|---|\n");
-                    for (iLinha = 0; iLinha < 8; iLinha++)
-                    {
-                        printf("%d ", iLinha);
-                        for (iColuna = 0; iColuna < 8; iColuna++)
-                        {
-
-                            printf("| %c ", tab[iColuna][iLinha]);
-
-                            if (iColuna == 7)
-                            {
-                                printf("|%d \n", iLinha);
-                            }
-                        }
-
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                    }
-                    printf("    0   1   2   3   4   5   6   7");
+                    imprimeTab(tab);
                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                     pLinha = fLinha;
@@ -1164,25 +1066,7 @@ int main(void)
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
-                    printf("    0   1   2   3   4   5   6   7\n");
-                    printf("  |---|---|---|---|---|---|---|---|\n");
-                    for (iLinha = 0; iLinha < 8; iLinha++)
-                    {
-                        printf("%d ", iLinha);
-                        for (iColuna = 0; iColuna < 8; iColuna++)
-                        {
-
-                            printf("| %c ", tab[iColuna][iLinha]);
-
-                            if (iColuna == 7)
-                            {
-                                printf("|%d \n", iLinha);
-                            }
-                        }
-
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                    }
-                    printf("    0   1   2   3   4   5   6   7");
+                    imprimeTab(tab);
                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                     pLinha = fLinha;
@@ -1196,25 +1080,7 @@ int main(void)
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
-                    printf("    0   1   2   3   4   5   6   7\n");
-                    printf("  |---|---|---|---|---|---|---|---|\n");
-                    for (iLinha = 0; iLinha < 8; iLinha++)
-                    {
-                        printf("%d ", iLinha);
-                        for (iColuna = 0; iColuna < 8; iColuna++)
-                        {
-
-                            printf("| %c ", tab[iColuna][iLinha]);
-
-                            if (iColuna == 7)
-                            {
-                                printf("|%d \n", iLinha);
-                            }
-                        }
-
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                    }
-                    printf("    0   1   2   3   4   5   6   7");
+                    imprimeTab(tab);
                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                     pLinha = fLinha;
@@ -1250,25 +1116,7 @@ int main(void)
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
-                    printf("    0   1   2   3   4   5   6   7\n");
-                    printf("  |---|---|---|---|---|---|---|---|\n");
-                    for (iLinha = 0; iLinha < 8; iLinha++)
-                    {
-                        printf("%d ", iLinha);
-                        for (iColuna = 0; iColuna < 8; iColuna++)
-                        {
-
-                            printf("| %c ", tab[iColuna][iLinha]);
-
-                            if (iColuna == 7)
-                            {
-                                printf("|%d \n", iLinha);
-                            }
-                        }
-
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                    }
-                    printf("    0   1   2   3   4   5   6   7");
+                    imprimeTab(tab);
                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                     pLinha = fLinha;
@@ -1281,25 +1129,7 @@ int main(void)
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
-                    printf("    0   1   2   3   4   5   6   7\n");
-                    printf("  |---|---|---|---|---|---|---|---|\n");
-                    for (iLinha = 0; iLinha < 8; iLinha++)
-                    {
-                        printf("%d ", iLinha);
-                        for (iColuna = 0; iColuna < 8; iColuna++)
-                        {
-
-                            printf("| %c ", tab[iColuna][iLinha]);
-
-                            if (iColuna == 7)
-                            {
-                                printf("|%d \n", iLinha);
-                            }
-                        }
-
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                    }
-                    printf("    0   1   2   3   4   5   6   7");
+                    imprimeTab(tab);
                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                     pLinha = fLinha;
@@ -1313,25 +1143,7 @@ int main(void)
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
-                    printf("    0   1   2   3   4   5   6   7\n");
-                    printf("  |---|---|---|---|---|---|---|---|\n");
-                    for (iLinha = 0; iLinha < 8; iLinha++)
-                    {
-                        printf("%d ", iLinha);
-                        for (iColuna = 0; iColuna < 8; iColuna++)
-                        {
-
-                            printf("| %c ", tab[iColuna][iLinha]);
-
-                            if (iColuna == 7)
-                            {
-                                printf("|%d \n", iLinha);
-                            }
-                        }
-
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                    }
-                    printf("    0   1   2   3   4   5   6   7");
+                    imprimeTab(tab);
                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                     pLinha = fLinha;
@@ -1345,25 +1157,7 @@ int main(void)
                 {
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
-                    printf("    0   1   2   3   4   5   6   7\n");
-                    printf("  |---|---|---|---|---|---|---|---|\n");
-                    for (iLinha = 0; iLinha < 8; iLinha++)
-                    {
-                        printf("%d ", iLinha);
-                        for (iColuna = 0; iColuna < 8; iColuna++)
-                        {
-
-                            printf("| %c ", tab[iColuna][iLinha]);
-
-                            if (iColuna == 7)
-                            {
-                                printf("|%d \n", iLinha);
-                            }
-                        }
-
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                    }
-                    printf("    0   1   2   3   4   5   6   7");
+                    imprimeTab(tab);
                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                     pLinha = fLinha;
@@ -1408,25 +1202,7 @@ int main(void)
         }
 
         // IMPRESSãO DO TABULEIRO:
-        printf("    0   1   2   3   4   5   6   7\n");
-        printf("  |---|---|---|---|---|---|---|---|\n");
-        for (iLinha = 0; iLinha < 8; iLinha++)
-        {
-            printf("%d ", iLinha);
-            for (iColuna = 0; iColuna < 8; iColuna++)
-            {
-
-                printf("| %c ", tab[iColuna][iLinha]);
-
-                if (iColuna == 7)
-                {
-                    printf("|%d \n", iLinha);
-                }
-            }
-
-            printf("  |---|---|---|---|---|---|---|---|\n");
-        }
-        printf("    0   1   2   3   4   5   6   7");
+        imprimeTab(tab);
 
         // VERIFICA SE AINDA EXISTEM PEÇAS DOS JOGADORES:
         for (brancas = 0, iLinha = 0; iLinha < 8; iLinha++)
@@ -1500,25 +1276,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -1531,25 +1289,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -1562,25 +1302,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -1593,25 +1315,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -1664,25 +1368,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -1695,25 +1381,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -1726,25 +1394,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -1757,25 +1407,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -1827,25 +1459,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -1858,25 +1472,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -1889,25 +1485,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -1920,25 +1498,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -1990,25 +1550,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -2021,25 +1563,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -2052,25 +1576,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -2083,25 +1589,7 @@ int main(void)
                                 {
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
-                                    printf("    0   1   2   3   4   5   6   7\n");
-                                    printf("  |---|---|---|---|---|---|---|---|\n");
-                                    for (iLinha = 0; iLinha < 8; iLinha++)
-                                    {
-                                        printf("%d ", iLinha);
-                                        for (iColuna = 0; iColuna < 8; iColuna++)
-                                        {
-
-                                            printf("| %c ", tab[iColuna][iLinha]);
-
-                                            if (iColuna == 7)
-                                            {
-                                                printf("|%d \n", iLinha);
-                                            }
-                                        }
-
-                                        printf("  |---|---|---|---|---|---|---|---|\n");
-                                    }
-                                    printf("    0   1   2   3   4   5   6   7");
+                                    imprimeTab(tab);
                                     printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                                     pLinha = fLinha;
@@ -2145,25 +1633,7 @@ int main(void)
                     {
                         system("CLS");
                         //  IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2176,25 +1646,7 @@ int main(void)
                     {
                         system("CLS");
                         //  IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2207,25 +1659,7 @@ int main(void)
                     {
                         system("CLS");
                         //  IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2238,25 +1672,7 @@ int main(void)
                     {
                         system("CLS");
                         //  IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2291,25 +1707,7 @@ int main(void)
                     {
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2322,25 +1720,7 @@ int main(void)
                     {
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2354,25 +1734,7 @@ int main(void)
                     {
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2386,25 +1748,7 @@ int main(void)
                     {
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2440,25 +1784,7 @@ int main(void)
                     {
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2472,25 +1798,7 @@ int main(void)
                     {
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2504,25 +1812,7 @@ int main(void)
                     {
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2536,25 +1826,7 @@ int main(void)
                     {
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2590,25 +1862,7 @@ int main(void)
                     {
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2621,25 +1875,7 @@ int main(void)
                     {
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2653,25 +1889,7 @@ int main(void)
                     {
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2685,25 +1903,7 @@ int main(void)
                     {
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
-                        printf("    0   1   2   3   4   5   6   7\n");
-                        printf("  |---|---|---|---|---|---|---|---|\n");
-                        for (iLinha = 0; iLinha < 8; iLinha++)
-                        {
-                            printf("%d ", iLinha);
-                            for (iColuna = 0; iColuna < 8; iColuna++)
-                            {
-
-                                printf("| %c ", tab[iColuna][iLinha]);
-
-                                if (iColuna == 7)
-                                {
-                                    printf("|%d \n", iLinha);
-                                }
-                            }
-
-                            printf("  |---|---|---|---|---|---|---|---|\n");
-                        }
-                        printf("    0   1   2   3   4   5   6   7");
+                        imprimeTab(tab);
                         printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
 
                         pLinha = fLinha;
@@ -2747,25 +1947,7 @@ int main(void)
         }
 
         // IMPRESSãO DO TABULEIRO:
-        printf("    0   1   2   3   4   5   6   7\n");
-        printf("  |---|---|---|---|---|---|---|---|\n");
-        for (iLinha = 0; iLinha < 8; iLinha++)
-        {
-            printf("%d ", iLinha);
-            for (iColuna = 0; iColuna < 8; iColuna++)
-            {
-
-                printf("| %c ", tab[iColuna][iLinha]);
-
-                if (iColuna == 7)
-                {
-                    printf("|%d \n", iLinha);
-                }
-            }
-
-            printf("  |---|---|---|---|---|---|---|---|\n");
-        }
-        printf("    0   1   2   3   4   5   6   7");
+        imprimeTab(tab);
 
         // VERIFICA SE AINDA EXISTEM PEÇAS DOS JOGADORES:
         for (pretas = 0, iLinha = 0; iLinha < 8; iLinha++)
