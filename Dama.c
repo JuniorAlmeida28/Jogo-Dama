@@ -4,8 +4,6 @@
 #include <math.h>
 #include <locale.h>
 
-    
-
 void imprimeTab(char tab[8][8])
 {
     // IMPRESSãO DO TABULEIRO:
@@ -28,7 +26,6 @@ void imprimeTab(char tab[8][8])
         printf("  |---|---|---|---|---|---|---|---|\n");
     }
     printf("    0   1   2   3   4   5   6   7");
-    
 }
 
 int main(void)
@@ -107,7 +104,6 @@ int main(void)
 
     // IMPRESSãO DO TABULEIRO:
     imprimeTab(tab);
-   
 
     while (pretas != 0 && brancas != 0)
     {
@@ -1223,10 +1219,10 @@ int main(void)
             {
 
                 printf("\n\n                 ---Jogador 2--- \n");
-            printf("Digite as coordenadas de origem da sua peca: (Linha e Coluna)\n");
-            scanf("%d %d", &iLinha, &iColuna);
-            printf("Digite as coordenadas de destino da sua peca: (Linha e Coluna)\n");
-            scanf("%d %d", &fLinha, &fColuna);
+                printf("Digite as coordenadas de origem da sua peca: (Linha e Coluna)\n");
+                scanf("%d %d", &iLinha, &iColuna);
+                printf("Digite as coordenadas de destino da sua peca: (Linha e Coluna)\n");
+                scanf("%d %d", &fLinha, &fColuna);
 
                 if (pLinha != iLinha && cColuna != iColuna || pLinha == iLinha && cColuna != iColuna || pLinha != iLinha && cColuna == iColuna)
                 {
