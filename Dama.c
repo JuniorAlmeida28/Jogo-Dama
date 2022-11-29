@@ -30,7 +30,6 @@ void imprimeTab(char tab[8][8])
 
 int main(void)
 {
-    setlocale(LC_ALL, "Portuguese");
 
     char tab[8][8]; // Tabuleiro 8X8.
     int iColuna;    // Posição inicial.
@@ -42,6 +41,8 @@ int main(void)
     int brancas = 1;
     int pLinha = 10;  // Auxiliar para obrigação de captura
     int cColuna = 10; // Auxiliar para obrigação de captura
+    int p2Linha = 10;
+    int c2Coluna = 10;
 
     // CRIAÇÃO E IMPRESSÃO DO TABULEIRO
     // UTILIZA UMA VARIÁVEL AUXILIAR PARA QUE AS PEÇAS SEJAM DISPOSTAS DE MANEIRA SIM/NAO/SIM
@@ -112,20 +113,32 @@ int main(void)
         {
 
             printf("\n\n                 ---Jogador 1--- \n");
-            printf("Digite as coordenadas de origem da sua peca: (Linha e Coluna)\n");
+            printf("Digite as coordenadas de origem da sua pe%ca: (Linha e Coluna)\n", 135);
             scanf("%d %d", &iLinha, &iColuna);
-            printf("Digite as coordenadas de destino da sua peca: (Linha e Coluna)\n");
+            printf("Digite as coordenadas de destino da sua pe%ca: (Linha e Coluna)\n", 135);
             scanf("%d %d", &fLinha, &fColuna);
 
             // OBRIGA A CAPTURAR DEPOIS DO MOVIMENTO DE CAPTURA
+            //LINHA ORIGEM
             if (pLinha != iLinha && cColuna != iColuna || pLinha == iLinha && cColuna != iColuna || pLinha != iLinha && cColuna == iColuna)
             {
+
+
                 if (pLinha != 10 || cColuna != 10)
                 {
                     printf("\nA captura %c obrigatoria na Linha %d Coluna %d\n", 130, pLinha, cColuna);
                     continue;
                 }
             }
+            //LINHA DESTINO
+                if (p2Linha != fLinha && c2Coluna != fColuna || p2Linha == fLinha && c2Coluna != fColuna || p2Linha != fLinha && c2Coluna == fColuna)
+                {
+                    if (p2Linha != 10 || c2Coluna != 10)
+                    {
+                        printf("\nA captura %c obrigatoria na Linha %d Coluna %d.\n", 130, pLinha, cColuna);
+                        continue;
+                    }
+                }
 
             // MOVIMENTO DAMA
 
@@ -167,10 +180,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha + 2;
+                                c2Coluna = fColuna + 2;
 
                                 continue;
                             }
@@ -180,10 +195,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha - 2;
+                                c2Coluna = fColuna + 2;
                                 continue;
                             }
 
@@ -193,10 +210,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha + 2;
+                                c2Coluna = fColuna - 2;
                                 continue;
                             }
 
@@ -206,10 +225,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha - 2;
+                                c2Coluna = fColuna - 2;
                                 continue;
                             }
 
@@ -217,7 +238,7 @@ int main(void)
                         }
                         else
                         {
-                            printf("\nExiste uma peca no meio do caminho:\nLinha %d\nColuna %d\n", y, x);
+                            printf("\nExiste uma pe%ca no meio do caminho:\nLinha %d\nColuna %d\n", 135, y, x);
                             continue;
                         }
                     }
@@ -259,10 +280,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha + 2;
+                                c2Coluna = fColuna + 2;
 
                                 continue;
                             }
@@ -272,10 +295,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha - 2;
+                                c2Coluna = fColuna + 2;
                                 continue;
                             }
 
@@ -285,10 +310,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha + 2;
+                                c2Coluna = fColuna - 2;
                                 continue;
                             }
 
@@ -298,10 +325,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha - 2;
+                                c2Coluna = fColuna - 2;
                                 continue;
                             }
 
@@ -309,7 +338,7 @@ int main(void)
                         }
                         else
                         {
-                            printf("\nExiste uma peca no meio do caminho:\nLinha %d\nColuna %d\n", y, x);
+                            printf("\nExiste uma pe%ca no meio do caminho:\nLinha %d\nColuna %d\n", 135, y, x);
                             continue;
                         }
                     }
@@ -350,10 +379,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha + 2;
+                                c2Coluna = fColuna + 2;
 
                                 continue;
                             }
@@ -363,10 +394,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha - 2;
+                                c2Coluna = fColuna + 2;
                                 continue;
                             }
 
@@ -376,10 +409,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha + 2;
+                                c2Coluna = fColuna - 2;
                                 continue;
                             }
 
@@ -389,10 +424,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha - 2;
+                                c2Coluna = fColuna - 2;
                                 continue;
                             }
 
@@ -400,7 +437,7 @@ int main(void)
                         }
                         else
                         {
-                            printf("\nExiste uma peca no meio do caminho:\nLinha %d\nColuna %d\n", y, x);
+                            printf("\nExiste uma pe%ca no meio do caminho:\nLinha %d\nColuna %d\n", 135, y, x);
                             continue;
                         }
                     }
@@ -441,10 +478,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha + 2;
+                                c2Coluna = fColuna + 2;
 
                                 continue;
                             }
@@ -454,10 +493,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha - 2;
+                                c2Coluna = fColuna + 2;
                                 continue;
                             }
 
@@ -467,10 +508,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha + 2;
+                                c2Coluna = fColuna - 2;
                                 continue;
                             }
 
@@ -480,10 +523,12 @@ int main(void)
                                 system("CLS");
                                 //  IMPRESSãO DO TABULEIRO:
                                 imprimeTab(tab);
-                                printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                 pLinha = fLinha;
                                 cColuna = fColuna;
+                                p2Linha = fLinha - 2;
+                                c2Coluna = fColuna - 2;
                                 continue;
                             }
 
@@ -491,7 +536,7 @@ int main(void)
                         }
                         else
                         {
-                            printf("\nExiste uma peca no meio do caminho:\nLinha %d\nColuna %d\n", y, x);
+                            printf("\nExiste uma pe%ca no meio do caminho:\nLinha %d\nColuna %d\n", 135, y, x);
                             continue;
                         }
                     }
@@ -525,10 +570,12 @@ int main(void)
                     system("CLS");
                     //  IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha + 2;
+                    c2Coluna = fColuna + 2;
 
                     continue;
                 }
@@ -538,10 +585,12 @@ int main(void)
                     system("CLS");
                     //  IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha - 2;
+                    c2Coluna = fColuna + 2;
                     continue;
                 }
 
@@ -551,10 +600,12 @@ int main(void)
                     system("CLS");
                     //  IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha + 2;
+                    c2Coluna = fColuna - 2;
                     continue;
                 }
 
@@ -564,10 +615,12 @@ int main(void)
                     system("CLS");
                     //  IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha - 2;
+                    c2Coluna = fColuna - 2;
                     continue;
                 }
 
@@ -602,6 +655,8 @@ int main(void)
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha + 2;
+                    c2Coluna = fColuna + 2;
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
@@ -611,10 +666,12 @@ int main(void)
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha - 2;
+                    c2Coluna = fColuna + 2;
                     continue;
                 }
 
@@ -625,10 +682,12 @@ int main(void)
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha + 2;
+                    c2Coluna = fColuna - 2;
                     continue;
                 }
 
@@ -639,10 +698,12 @@ int main(void)
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha - 2;
+                    c2Coluna = fColuna - 2;
                     continue;
                 }
 
@@ -675,10 +736,12 @@ int main(void)
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha + 2;
+                    c2Coluna = fColuna + 2;
 
                     continue;
                 }
@@ -689,10 +752,12 @@ int main(void)
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha - 2;
+                    c2Coluna = fColuna + 2;
                     continue;
                 }
 
@@ -703,10 +768,12 @@ int main(void)
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha + 2;
+                    c2Coluna = fColuna - 2;
                     continue;
                 }
 
@@ -717,10 +784,12 @@ int main(void)
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha - 2;
+                    c2Coluna = fColuna - 2;
                     continue;
                 }
 
@@ -753,10 +822,12 @@ int main(void)
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha + 2;
+                    c2Coluna = fColuna + 2;
                     continue;
                 }
                 // VERIFICA PARA CIMA E PARA DIREITA
@@ -766,10 +837,12 @@ int main(void)
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha - 2;
+                    c2Coluna = fColuna + 2;
                     continue;
                 }
 
@@ -780,10 +853,12 @@ int main(void)
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha + 2;
+                    c2Coluna = fColuna - 2;
                     continue;
                 }
 
@@ -794,10 +869,12 @@ int main(void)
                     system("CLS");
                     // IMPRESSãO DO TABULEIRO:
                     imprimeTab(tab);
-                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                     pLinha = fLinha;
                     cColuna = fColuna;
+                    p2Linha = fLinha - 2;
+                    c2Coluna = fColuna - 2;
                     continue;
                 }
 
@@ -826,6 +903,8 @@ int main(void)
         // VOLTA A VALER 10
         pLinha = 10;
         cColuna = 10;
+        p2Linha = 10;
+        c2Coluna = 10;
         system("CLS");
 
         // VERIFICA SE VIROU DAMA:
@@ -859,16 +938,28 @@ int main(void)
             {
 
                 printf("\n\n                 ---Jogador 2--- \n");
-                printf("Digite as coordenadas de origem da sua peca: (Linha e Coluna)\n");
+                printf("Digite as coordenadas de origem da sua pe%ca: (Linha e Coluna)\n",135);
                 scanf("%d %d", &iLinha, &iColuna);
-                printf("Digite as coordenadas de destino da sua peca: (Linha e Coluna)\n");
+                printf("Digite as coordenadas de destino da sua pe%ca: (Linha e Coluna)\n",135);
                 scanf("%d %d", &fLinha, &fColuna);
 
+                // OBRIGA A CAPTURAR DEPOIS DO MOVIMENTO DE CAPTURA
+                // LINHA ORIGEM
                 if (pLinha != iLinha && cColuna != iColuna || pLinha == iLinha && cColuna != iColuna || pLinha != iLinha && cColuna == iColuna)
                 {
+
                     if (pLinha != 10 || cColuna != 10)
                     {
                         printf("\nA captura %c obrigatoria na Linha %d Coluna %d\n", 130, pLinha, cColuna);
+                        continue;
+                    }
+                }
+                //LINHA DESTINO
+                if (p2Linha != fLinha && c2Coluna != fColuna || p2Linha == fLinha && c2Coluna != fColuna || p2Linha != fLinha && c2Coluna == fColuna)
+                {
+                    if (p2Linha != 10 || c2Coluna != 10)
+                    {
+                        printf("\nA captura %c obrigatoria na Linha %d Coluna %d.\n", 130, pLinha, cColuna);
                         continue;
                     }
                 }
@@ -913,10 +1004,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha + 2;
+                                    c2Coluna = fColuna + 2;
 
                                     continue;
                                 }
@@ -926,10 +1019,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha - 2;
+                                    c2Coluna = fColuna + 2;
                                     continue;
                                 }
 
@@ -939,10 +1034,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha + 2;
+                                    c2Coluna = fColuna - 2;
                                     continue;
                                 }
 
@@ -952,10 +1049,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha - 2;
+                                    c2Coluna = fColuna - 2;
                                     continue;
                                 }
 
@@ -1005,10 +1104,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha + 2;
+                                    c2Coluna = fColuna + 2;
 
                                     continue;
                                 }
@@ -1018,10 +1119,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha - 2;
+                                    c2Coluna = fColuna + 2;
                                     continue;
                                 }
 
@@ -1031,10 +1134,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha + 2;
+                                    c2Coluna = fColuna - 2;
                                     continue;
                                 }
 
@@ -1044,10 +1149,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha - 2;
+                                    c2Coluna = fColuna - 2;
                                     continue;
                                 }
 
@@ -1096,10 +1203,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha + 2;
+                                    c2Coluna = fColuna + 2;
 
                                     continue;
                                 }
@@ -1109,10 +1218,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha - 2;
+                                    c2Coluna = fColuna + 2;
                                     continue;
                                 }
 
@@ -1122,10 +1233,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha + 2;
+                                    c2Coluna = fColuna - 2;
                                     continue;
                                 }
 
@@ -1135,10 +1248,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha - 2;
+                                    c2Coluna = fColuna - 2;
                                     continue;
                                 }
 
@@ -1187,10 +1302,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha + 2;
+                                    c2Coluna = fColuna + 2;
 
                                     continue;
                                 }
@@ -1200,10 +1317,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha - 2;
+                                    c2Coluna = fColuna + 2;
                                     continue;
                                 }
 
@@ -1213,10 +1332,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha + 2;
+                                    c2Coluna = fColuna - 2;
                                     continue;
                                 }
 
@@ -1226,10 +1347,12 @@ int main(void)
                                     system("CLS");
                                     //  IMPRESSãO DO TABULEIRO:
                                     imprimeTab(tab);
-                                    printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                                    printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                                     pLinha = fLinha;
                                     cColuna = fColuna;
+                                    p2Linha = fLinha - 2;
+                                    c2Coluna = fColuna - 2;
                                     continue;
                                 }
 
@@ -1270,10 +1393,12 @@ int main(void)
                         system("CLS");
                         //  IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha + 2;
+                        c2Coluna = fColuna + 2;
 
                         continue;
                     }
@@ -1283,10 +1408,12 @@ int main(void)
                         system("CLS");
                         //  IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha - 2;
+                        c2Coluna = fColuna + 2;
                         continue;
                     }
 
@@ -1296,10 +1423,12 @@ int main(void)
                         system("CLS");
                         //  IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha + 2;
+                        c2Coluna = fColuna - 2;
                         continue;
                     }
 
@@ -1309,10 +1438,12 @@ int main(void)
                         system("CLS");
                         //  IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha - 2;
+                        c2Coluna = fColuna - 2;
                         continue;
                     }
 
@@ -1344,10 +1475,12 @@ int main(void)
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha + 2;
+                        c2Coluna = fColuna + 2;
                         continue;
                     }
                     // VERIFICA PARA CIMA E PARA DIREITA
@@ -1357,10 +1490,12 @@ int main(void)
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha - 2;
+                        c2Coluna = fColuna + 2;
                         continue;
                     }
 
@@ -1371,10 +1506,12 @@ int main(void)
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha + 2;
+                        c2Coluna = fColuna - 2;
                         continue;
                     }
 
@@ -1385,10 +1522,12 @@ int main(void)
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha - 2;
+                        c2Coluna = fColuna - 2;
                         continue;
                     }
 
@@ -1421,10 +1560,12 @@ int main(void)
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha + 2;
+                        c2Coluna = fColuna + 2;
 
                         continue;
                     }
@@ -1435,10 +1576,12 @@ int main(void)
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha - 2;
+                        c2Coluna = fColuna + 2;
                         continue;
                     }
 
@@ -1449,10 +1592,12 @@ int main(void)
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha + 2;
+                        c2Coluna = fColuna - 2;
                         continue;
                     }
 
@@ -1463,10 +1608,12 @@ int main(void)
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha - 2;
+                        c2Coluna = fColuna - 2;
                         continue;
                     }
 
@@ -1499,10 +1646,12 @@ int main(void)
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha + 2;
+                        c2Coluna = fColuna + 2;
                         continue;
                     }
                     // VERIFICA PARA CIMA E PARA DIREITA
@@ -1512,10 +1661,12 @@ int main(void)
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha - 2;
+                        c2Coluna = fColuna + 2;
                         continue;
                     }
 
@@ -1526,10 +1677,12 @@ int main(void)
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha + 2;
+                        c2Coluna = fColuna - 2;
                         continue;
                     }
 
@@ -1540,10 +1693,12 @@ int main(void)
                         system("CLS");
                         // IMPRESSãO DO TABULEIRO:
                         imprimeTab(tab);
-                        printf("\nAinde existem pecas a serem capturadas e a captura e obrigatoria!");
+                        printf("\nAinde existem pe%cas a serem capturadas e a captura %c obrigatoria!", 135, 130);
 
                         pLinha = fLinha;
                         cColuna = fColuna;
+                        p2Linha = fLinha - 2;
+                        c2Coluna = fColuna - 2;
                         continue;
                     }
 
@@ -1571,6 +1726,8 @@ int main(void)
         // VOLTA A VALER 10
         pLinha = 10;
         cColuna = 10;
+        p2Linha = 10;
+        c2Coluna = 10;
         system("CLS");
 
         // VERIFICA SE VIROU DAMA
